@@ -24,9 +24,9 @@ const STAGE_TONES: Record<StageSummary["state"], string> = {
   locked: "border-stone-200 bg-stone-50/60",
 };
 
-export default function JourneyPage() {
-  const { activeSite: site } = requireUser();
-  const stages = journeyForSite(site.id, savingsForSite(site.id));
+export default async function JourneyPage() {
+  const { activeSite: site } = await requireUser();
+  const stages = await journeyForSite(site.id, await savingsForSite(site.id));
 
   return (
     <div>

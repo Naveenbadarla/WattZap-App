@@ -14,9 +14,9 @@ const STATUS_TONE: Record<string, "green" | "amber" | "blue" | "stone"> = {
   generating: "blue",
 };
 
-export default function ReportsPage() {
-  const { activeSite: site } = requireUser();
-  const reports = reportsForSite(site.id);
+export default async function ReportsPage() {
+  const { activeSite: site } = await requireUser();
+  const reports = await reportsForSite(site.id);
 
   return (
     <div>

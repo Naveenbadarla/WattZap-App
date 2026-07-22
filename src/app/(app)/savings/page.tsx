@@ -11,12 +11,15 @@ import { productBySlug } from "@/lib/data/products";
 
 export const metadata: Metadata = { title: "Savings Wallet" };
 
-export default function SavingsWalletPage() {
-  const { user, activeSite: site } = requireUser();
-  const entries = savingsForSite(site.id);
+export default async function SavingsWalletPage() {
+  const { user, activeSite: site } = await requireUser();
+  const entries = await savingsForSite(site.id);
   const wallet = walletSummary(entries);
   const products = byProduct(entries);
-  const allSites = sitesForUser(user);
+  const allSites = await sitesForUser(user);
+  const siteWallets = await Promise.all(
+    allSites.map(async (s) => ({ site: s, wallet: walletSummary(await savingsForSite(s.id)) }))
+  );
 
   if (entries.length === 0) {
     return (
@@ -122,20 +125,17 @@ export default function SavingsWalletPage() {
         <Card className="p-5">
           <h2 className="font-bold mb-3">Savings by site</h2>
           <ul className="space-y-2">
-            {allSites.map((s) => {
-              const w = walletSummary(savingsForSite(s.id));
-              return (
-                <li key={s.id} className="flex items-center justify-between text-sm">
-                  <span>{s.name}</span>
-                  <span className="font-semibold">
-                    {formatINR(w.identified)}/yr identified
-                    {w.verified > 0 ? (
-                      <span className="text-verified-600"> · {formatINR(w.verified)} verified</span>
-                    ) : null}
-                  </span>
-                </li>
-              );
-            })}
+            {siteWallets.map(({ site: s, wallet: w }) => (
+              <li key={s.id} className="flex items-center justify-between text-sm">
+                <span>{s.name}</span>
+                <span className="font-semibold">
+                  {formatINR(w.identified)}/yr identified
+                  {w.verified > 0 ? (
+                    <span className="text-verified-600"> · {formatINR(w.verified)} verified</span>
+                  ) : null}
+                </span>
+              </li>
+            ))}
           </ul>
         </Card>
       </section>

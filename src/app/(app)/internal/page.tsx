@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { requireUser } from "@/lib/auth";
-import { db, entitlementsForSite, savingsForSite } from "@/lib/db";
+import {
+  entitlementsForSite,
+  getOrgName,
+  listAllSites,
+  opportunitiesForSite,
+  savingsForSite,
+  supportRequestsForSite,
+} from "@/lib/db";
 import { isInternal } from "@/lib/permissions";
 import { walletSummary } from "@/lib/savings";
 import { formatDate, formatINR } from "@/lib/format";
@@ -15,26 +22,35 @@ export const metadata: Metadata = { title: "WattZap Console" };
  * customer roles get a 404, not a redirect, so the route's existence
  * is not advertised.
  */
-export default function InternalPage() {
-  const { user } = requireUser();
+export default async function InternalPage() {
+  const { user } = await requireUser();
   if (!isInternal(user)) notFound();
 
-  const org = db().org;
-  const sites = db().sites;
-  const openSupport = db().supportRequests.filter((r) => r.status !== "resolved");
+  const sites = await listAllSites();
+  const orgName = sites.length > 0 ? await getOrgName(sites[0].orgId) : "—";
+  const siteData = await Promise.all(
+    sites.map(async (site) => {
+      const [savings, ents, opps, support] = await Promise.all([
+        savingsForSite(site.id),
+        entitlementsForSite(site.id),
+        opportunitiesForSite(site.id),
+        supportRequestsForSite(site.id),
+      ]);
+      return { site, savings, ents, opps, support };
+    })
+  );
+  const openSupport = siteData.flatMap((d) => d.support).filter((r) => r.status !== "resolved");
 
   return (
     <div>
       <PageHeader
         title="WattZap Console — customer view"
-        subtitle={`Internal view of ${org.name} (${user.internalRole?.replace(/_/g, " ")}). Customers never see this page.`}
+        subtitle={`Internal view of ${orgName} (${user.internalRole?.replace(/_/g, " ")}). Customers never see this page.`}
       />
 
       <div className="space-y-6">
-        {sites.map((site) => {
-          const wallet = walletSummary(savingsForSite(site.id));
-          const ents = entitlementsForSite(site.id);
-          const opps = db().opportunities.filter((o) => o.siteId === site.id);
+        {siteData.map(({ site, savings, ents, opps }) => {
+          const wallet = walletSummary(savings);
           const pendingDecisions = opps.filter((o) => ["recommended", "new", "info_required", "under_review"].includes(o.status));
           return (
             <Card key={site.id} className="p-5">

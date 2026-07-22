@@ -6,9 +6,9 @@ import { SiteSwitcher } from "@/components/site-switcher";
 import { UserMenu } from "@/components/user-menu";
 import { Coach } from "@/components/coach";
 
-export default function AppLayout({ children }: { children: React.ReactNode }) {
-  const { user, activeSite, sites } = requireUser();
-  const items = navForSite(activeSite, isInternal(user));
+export default async function AppLayout({ children }: { children: React.ReactNode }) {
+  const { user, activeSite, sites } = await requireUser();
+  const items = await navForSite(activeSite, isInternal(user));
 
   return (
     <div className="min-h-screen bg-surface">

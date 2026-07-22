@@ -1,5 +1,5 @@
 import "server-only";
-import { db, entitlementsForSite } from "@/lib/db";
+import { entitlementsForSite } from "@/lib/db";
 import { ENTITLEMENT_RULES, JOURNEY_STAGES, PRODUCTS } from "@/lib/data/products";
 import type {
   Entitlement,
@@ -26,8 +26,8 @@ export interface ProductWithEntitlement {
   entitlement: Entitlement;
 }
 
-export function productsForSite(siteId: string): ProductWithEntitlement[] {
-  const ents = entitlementsForSite(siteId);
+export async function productsForSite(siteId: string): Promise<ProductWithEntitlement[]> {
+  const ents = await entitlementsForSite(siteId);
   return PRODUCTS.flatMap((def) => {
     const entitlement = ents.find((e) => e.product === def.slug);
     if (!entitlement) {
@@ -52,10 +52,13 @@ export function productsForSite(siteId: string): ProductWithEntitlement[] {
   });
 }
 
-export function getEntitlement(siteId: string, slug: ProductSlug): ProductWithEntitlement | null {
+export async function getEntitlement(
+  siteId: string,
+  slug: ProductSlug
+): Promise<ProductWithEntitlement | null> {
   const def = PRODUCTS.find((p) => p.slug === slug);
   if (!def) return null;
-  const list = productsForSite(siteId);
+  const list = await productsForSite(siteId);
   return list.find((p) => p.def.slug === slug) ?? null;
 }
 
@@ -120,8 +123,11 @@ const STAGE_STATE_LABELS: Record<StageSummary["state"], string> = {
   locked: "Unlocks later",
 };
 
-export function journeyForSite(siteId: string, savings: SavingsEntry[]): StageSummary[] {
-  const products = productsForSite(siteId);
+export async function journeyForSite(
+  siteId: string,
+  savings: SavingsEntry[]
+): Promise<StageSummary[]> {
+  const products = await productsForSite(siteId);
   return JOURNEY_STAGES.map((stage) => {
     const stageProducts = products.filter((p) => p.def.stage === stage.id);
     const states = stageProducts.map((p) => p.entitlement.state);
@@ -174,8 +180,8 @@ export interface NavItem {
  * Navigation adapts to what is activated at the site — a new customer sees a
  * short menu; more products reveal more areas.
  */
-export function navForSite(site: Site, isInternalUser: boolean): NavItem[] {
-  const products = productsForSite(site.id);
+export async function navForSite(site: Site, isInternalUser: boolean): Promise<NavItem[]> {
+  const products = await productsForSite(site.id);
   const has = (slug: ProductSlug, ...states: ProductState[]) =>
     products.some((p) => p.def.slug === slug && states.includes(p.entitlement.state));
 

@@ -7,9 +7,9 @@ import { Card, PageHeader, ProgressBar } from "@/components/ui";
 
 export const metadata: Metadata = { title: "Onboarding" };
 
-export default function OnboardingPage() {
-  const { activeSite: site } = requireUser();
-  const steps = onboardingForSite(site.id);
+export default async function OnboardingPage() {
+  const { activeSite: site } = await requireUser();
+  const steps = await onboardingForSite(site.id);
   const done = steps.filter((s) => s.status === "done").length;
 
   return (

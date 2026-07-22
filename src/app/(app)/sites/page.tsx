@@ -13,23 +13,27 @@ import { MATURITY_LEVELS, PRODUCTS } from "@/lib/data/products";
 
 export const metadata: Metadata = { title: "Sites" };
 
-export default function SitesPage() {
-  const { user } = requireUser();
-  const sites = sitesForUser(user);
+export default async function SitesPage() {
+  const { user } = await requireUser();
+  const sites = await sitesForUser(user);
 
-  const rows = sites.map((site) => {
-    const bills = billsForSite(site.id);
-    const latest = bills[bills.length - 1];
-    const wallet = walletSummary(savingsForSite(site.id));
-    const active = entitlementsForSite(site.id).filter((e) =>
-      ["active", "onboarding", "completed"].includes(e.state)
-    );
-    const perTonne =
-      latest && site.monthlyProductionTonnes
-        ? latest.unitsKwh / site.monthlyProductionTonnes
-        : null;
-    return { site, latest, wallet, active, perTonne };
-  });
+  const rows = await Promise.all(
+    sites.map(async (site) => {
+      const [bills, savings, ents] = await Promise.all([
+        billsForSite(site.id),
+        savingsForSite(site.id),
+        entitlementsForSite(site.id),
+      ]);
+      const latest = bills[bills.length - 1];
+      const wallet = walletSummary(savings);
+      const active = ents.filter((e) => ["active", "onboarding", "completed"].includes(e.state));
+      const perTonne =
+        latest && site.monthlyProductionTonnes
+          ? latest.unitsKwh / site.monthlyProductionTonnes
+          : null;
+      return { site, latest, wallet, active, perTonne };
+    })
+  );
 
   const totalCost = rows.reduce((t, r) => t + (r.latest?.amount ?? 0), 0);
   const totalVerified = rows.reduce((t, r) => t + r.wallet.verified, 0);

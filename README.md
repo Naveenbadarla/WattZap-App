@@ -26,6 +26,12 @@ No environment variables are needed for the demo build — it ships with an in-m
 seeded data layer (see “Architecture” below). `npm run build && npm start` for production
 mode. `npm run typecheck` and `npm run lint` must pass.
 
+**Running on Supabase (persistent data + real auth):** the app switches to its
+Supabase adapter automatically when `NEXT_PUBLIC_SUPABASE_URL`,
+`NEXT_PUBLIC_SUPABASE_ANON_KEY` and `SUPABASE_SERVICE_ROLE_KEY` are set. Run the two
+migrations, seed with `npm run seed:supabase`, and deploy — full walkthrough in
+[DEPLOYMENT.md](./DEPLOYMENT.md).
+
 ### Test accounts (password for all: `demo1234`)
 
 | Email | Role | Access |
@@ -122,35 +128,33 @@ src/
     types.ts                # domain model (mirrors SQL schema)
     data/seed.ts            # realistic demo dataset (all tagged, nothing fake-live)
     data/products.ts        # product catalog + configurable entitlement rules
-    db.ts                   # demo persistence (globalThis store) = repository layer
-    auth.ts  permissions.ts # sessions, role rules
+    repo/types.ts           # Repository contract (the persistence seam)
+    repo/demo.ts            # adapter 1: seeded in-memory store
+    repo/supabase.ts        # adapter 2: Supabase/PostgreSQL
+    supabase/server.ts      # Supabase clients (service-role + auth cookies)
+    db.ts                   # data-access facade (dispatches by env)
+    auth.ts                 # auth facade (Supabase Auth or demo sessions)
+    permissions.ts          # role rules
     entitlements.ts         # entitlement/journey/navigation services
     savings.ts              # wallet aggregation
     actions.ts              # ALL writes: auth → tenant check → role check → zod → audit
+scripts/seed-supabase.mjs   # seeds a Supabase project with the demo dataset
 supabase/migrations/        # full production schema + RLS policies
 ```
 
 Separation of concerns: UI components never contain business rules; all mutations go
 through server actions; entitlement, journey, savings and permission logic live in
-`src/lib` services.
+`src/lib` services; persistence sits behind the `Repository` interface with two
+interchangeable adapters.
 
-### Demo persistence — important
+### Two persistence modes
 
-The demo data layer is an in-memory store cached on `globalThis`, cloned from the seed
-on first access. Mutations (approvals, activations, uploads, alert reads) work and
-persist for the life of the server process, then reset — ideal for demos and pilots.
-The store's read/write functions form the repository interface; the production adapter
-implements the same functions against Supabase.
-
-### Production wiring (already prepared)
-
-1. Create a Supabase project, run `supabase/migrations/0001_init.sql` (schema, enums,
-   RLS policies, product catalog seed).
-2. Fill `.env` from `.env.example`.
-3. Replace `src/lib/auth.ts` internals with Supabase Auth (email verification +
-   password reset) and `src/lib/db.ts` internals with Supabase queries — both modules
-   were designed as swap points; no page code changes.
-4. Point document upload at Supabase Storage (signed URLs).
+- **Demo (default, no env vars):** in-memory store cached on `globalThis`, cloned
+  from the seed on first access. Mutations work and persist for the life of the
+  server process, then reset — ideal for demos.
+- **Supabase (env vars set):** same repository contract against PostgreSQL with Row
+  Level Security, and Supabase Auth for sign-in, email verification and password
+  reset. Setup guide: [DEPLOYMENT.md](./DEPLOYMENT.md).
 
 ## Security model
 
