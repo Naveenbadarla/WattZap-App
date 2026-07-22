@@ -1,160 +1,54 @@
 import "server-only";
-import * as seed from "@/lib/data/seed";
-import type {
-  ActionItem,
-  Alert,
-  DemandEvent,
-  DocumentItem,
-  Entitlement,
-  Equipment,
-  MonthlyBill,
-  OnboardingMilestone,
-  OnboardingStep,
-  Opportunity,
-  Organisation,
-  PFEvent,
-  Report,
-  SavingsEntry,
-  Session,
-  Site,
-  SupportRequest,
-  TodProfilePoint,
-  User,
-} from "@/lib/types";
+import { supabaseConfigured } from "@/lib/supabase/server";
+import { demoRepo } from "@/lib/repo/demo";
+import { supabaseRepo } from "@/lib/repo/supabase";
+import type { Repository } from "@/lib/repo/types";
+import type { ProductSlug, User } from "@/lib/types";
 
 /**
- * Demo persistence layer.
- *
- * A mutable in-memory store seeded from /lib/data/seed.ts and cached on
- * globalThis so it survives hot reloads and is shared across requests within
- * one server process. Mutations (approvals, activations, uploads) are applied
- * here through the same repository interface the production Supabase adapter
- * will implement — see /supabase/migrations for the real schema.
+ * Data access facade. Dispatches to the Supabase adapter when the env vars
+ * are configured, otherwise to the seeded in-memory demo adapter. Pages and
+ * services import these functions — never an adapter directly.
  */
 
-export interface Store {
-  org: Organisation;
-  sites: Site[];
-  users: User[];
-  entitlements: Entitlement[];
-  bills: MonthlyBill[];
-  demandEvents: DemandEvent[];
-  pfEvents: PFEvent[];
-  todProfile: TodProfilePoint[];
-  opportunities: Opportunity[];
-  savings: SavingsEntry[];
-  actions: ActionItem[];
-  alerts: Alert[];
-  reports: Report[];
-  documents: DocumentItem[];
-  onboarding: OnboardingStep[];
-  milestones: OnboardingMilestone[];
-  equipment: Equipment[];
-  supportRequests: SupportRequest[];
-  sessions: Map<string, Session>;
+export function repo(): Repository {
+  // The Supabase client itself is created lazily inside the adapter, so
+  // importing both adapters is safe in demo mode.
+  return supabaseConfigured() ? supabaseRepo : demoRepo;
 }
 
-function createStore(): Store {
-  // Deep-clone seed arrays so runtime mutations never touch module constants.
-  const clone = <T>(x: T): T => JSON.parse(JSON.stringify(x));
-  return {
-    org: clone(seed.ORG),
-    sites: clone(seed.SITES),
-    users: clone(seed.USERS),
-    entitlements: clone(seed.ENTITLEMENTS),
-    bills: clone(seed.BILLS),
-    demandEvents: clone(seed.DEMAND_EVENTS),
-    pfEvents: clone(seed.PF_EVENTS),
-    todProfile: clone(seed.TOD_PROFILE),
-    opportunities: clone(seed.OPPORTUNITIES),
-    savings: clone(seed.SAVINGS),
-    actions: clone(seed.ACTIONS),
-    alerts: clone(seed.ALERTS),
-    reports: clone(seed.REPORTS),
-    documents: clone(seed.DOCUMENTS),
-    onboarding: clone(seed.ONBOARDING),
-    milestones: clone(seed.MILESTONES),
-    equipment: clone(seed.EQUIPMENT),
-    supportRequests: clone(seed.SUPPORT_REQUESTS),
-    sessions: new Map(),
-  };
+// ---- tenancy ----
+
+export const getSite = (siteId: string) => repo().getSite(siteId);
+export const sitesForUser = (user: User) => repo().sitesForUser(user);
+export const listAllSites = () => repo().listAllSites();
+export const listOrgUsers = (orgId: string) => repo().listOrgUsers(orgId);
+export const getUserById = (id: string) => repo().getUserById(id);
+export const getOrgName = (orgId: string | null) => repo().getOrgName(orgId);
+
+export async function userCanAccessSite(user: User, siteId: string): Promise<boolean> {
+  const sites = await repo().sitesForUser(user);
+  return sites.some((s) => s.id === siteId);
 }
 
-const g = globalThis as unknown as { __wattzapStore?: Store };
+// ---- reads ----
 
-export function db(): Store {
-  if (!g.__wattzapStore) g.__wattzapStore = createStore();
-  return g.__wattzapStore;
-}
-
-// ---------- Read helpers (always tenant-scoped by siteIds) ----------
-
-export function getSite(siteId: string): Site | undefined {
-  return db().sites.find((s) => s.id === siteId);
-}
-
-export function sitesForUser(user: User): Site[] {
-  if (user.allSites && user.orgId === null) return db().sites; // internal staff
-  if (user.allSites) return db().sites.filter((s) => s.orgId === user.orgId);
-  return db().sites.filter((s) => user.siteIds.includes(s.id));
-}
-
-export function userCanAccessSite(user: User, siteId: string): boolean {
-  return sitesForUser(user).some((s) => s.id === siteId);
-}
-
-export function entitlementsForSite(siteId: string): Entitlement[] {
-  return db().entitlements.filter((e) => e.siteId === siteId);
-}
-
-export function billsForSite(siteId: string): MonthlyBill[] {
-  return db()
-    .bills.filter((b) => b.siteId === siteId)
-    .sort((a, b) => a.month.localeCompare(b.month));
-}
-
-export function opportunitiesForSite(siteId: string): Opportunity[] {
-  return db()
-    .opportunities.filter((o) => o.siteId === siteId)
-    .sort((a, b) => a.priority - b.priority || b.annualSaving - a.annualSaving);
-}
-
-export function savingsForSite(siteId: string): SavingsEntry[] {
-  return db().savings.filter((s) => s.siteId === siteId);
-}
-
-export function actionsForSite(siteId: string): ActionItem[] {
-  return db()
-    .actions.filter((a) => a.siteId === siteId)
-    .sort((a, b) => a.dueDate.localeCompare(b.dueDate));
-}
-
-export function alertsForSite(siteId: string): Alert[] {
-  return db()
-    .alerts.filter((a) => a.siteId === siteId)
-    .sort((a, b) => b.whenHappened.localeCompare(a.whenHappened));
-}
-
-export function reportsForSite(siteId: string): Report[] {
-  return db()
-    .reports.filter((r) => r.siteId === siteId)
-    .sort((a, b) => b.generatedOn.localeCompare(a.generatedOn));
-}
-
-export function documentsForSite(siteId: string): DocumentItem[] {
-  return db()
-    .documents.filter((d) => d.siteId === siteId)
-    .sort((a, b) => b.uploadedOn.localeCompare(a.uploadedOn));
-}
-
-export function onboardingForSite(siteId: string): OnboardingStep[] {
-  return db()
-    .onboarding.filter((o) => o.siteId === siteId)
-    .sort((a, b) => a.step - b.step);
-}
-
-export function milestonesFor(siteId: string, product: string): OnboardingMilestone[] {
-  return db()
-    .milestones.filter((m) => m.siteId === siteId && m.product === product)
-    .sort((a, b) => a.step - b.step);
-}
+export const entitlementsForSite = (siteId: string) => repo().entitlementsForSite(siteId);
+export const billsForSite = (siteId: string) => repo().billsForSite(siteId);
+export const opportunitiesForSite = (siteId: string) => repo().opportunitiesForSite(siteId);
+export const getOpportunity = (id: string) => repo().getOpportunity(id);
+export const savingsForSite = (siteId: string) => repo().savingsForSite(siteId);
+export const getSavingsEntry = (id: string) => repo().getSavingsEntry(id);
+export const findSavingsByOpportunity = (oppId: string) => repo().findSavingsByOpportunity(oppId);
+export const actionsForSite = (siteId: string) => repo().actionsForSite(siteId);
+export const alertsForSite = (siteId: string, userId: string) =>
+  repo().alertsForSite(siteId, userId);
+export const reportsForSite = (siteId: string) => repo().reportsForSite(siteId);
+export const documentsForSite = (siteId: string) => repo().documentsForSite(siteId);
+export const onboardingForSite = (siteId: string) => repo().onboardingForSite(siteId);
+export const milestonesFor = (siteId: string, product: ProductSlug) =>
+  repo().milestonesFor(siteId, product);
+export const pfEventsForSite = (siteId: string) => repo().pfEventsForSite(siteId);
+export const demandEventsForSite = (siteId: string) => repo().demandEventsForSite(siteId);
+export const todProfileForSite = (siteId: string) => repo().todProfileForSite(siteId);
+export const supportRequestsForSite = (siteId: string) => repo().supportRequestsForSite(siteId);

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Check, FileText, X } from "lucide-react";
 import { requireUser } from "@/lib/auth";
-import { db, userCanAccessSite } from "@/lib/db";
+import { findSavingsByOpportunity, getOpportunity, userCanAccessSite } from "@/lib/db";
 import { canDecideOpportunity, ROLE_LABELS } from "@/lib/permissions";
 import { formatDate, formatINR } from "@/lib/format";
 import { commentOpportunityAction, decideOpportunityAction } from "@/lib/actions";
@@ -13,14 +13,14 @@ import { productBySlug } from "@/lib/data/products";
 
 export const metadata: Metadata = { title: "Opportunity" };
 
-export default function OpportunityDetailPage({ params }: { params: { id: string } }) {
-  const { user } = requireUser();
-  const opp = db().opportunities.find((o) => o.id === params.id);
-  if (!opp || !userCanAccessSite(user, opp.siteId)) notFound();
+export default async function OpportunityDetailPage({ params }: { params: { id: string } }) {
+  const { user } = await requireUser();
+  const opp = await getOpportunity(params.id);
+  if (!opp || !(await userCanAccessSite(user, opp.siteId))) notFound();
 
   const product = productBySlug(opp.product);
   const decidable = canDecideOpportunity(user) && !["approved", "rejected", "verified", "closed", "implemented", "measuring"].includes(opp.status);
-  const savings = db().savings.find((s) => s.opportunityId === opp.id);
+  const savings = await findSavingsByOpportunity(opp.id);
 
   return (
     <div className="max-w-3xl">

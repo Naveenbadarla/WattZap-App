@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import { requireUser } from "@/lib/auth";
-import { db } from "@/lib/db";
+import { listOrgUsers } from "@/lib/db";
 import { ROLE_LABELS } from "@/lib/permissions";
 import { Card, PageHeader, StatusPill } from "@/components/ui";
 
 export const metadata: Metadata = { title: "Settings" };
 
-export default function SettingsPage() {
-  const { user, activeSite: site, sites } = requireUser();
-  const teammates = db().users.filter((u) => u.orgId === user.orgId && u.id !== user.id);
+export default async function SettingsPage() {
+  const { user, activeSite: site, sites } = await requireUser();
+  const teammates = user.orgId
+    ? (await listOrgUsers(user.orgId)).filter((u) => u.id !== user.id)
+    : [];
 
   return (
     <div className="max-w-3xl">

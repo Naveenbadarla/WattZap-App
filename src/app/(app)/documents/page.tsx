@@ -9,9 +9,9 @@ import { CATEGORY_LABELS } from "@/lib/labels";
 
 export const metadata: Metadata = { title: "Documents" };
 
-export default function DocumentsPage() {
-  const { activeSite: site } = requireUser();
-  const docs = documentsForSite(site.id);
+export default async function DocumentsPage() {
+  const { activeSite: site } = await requireUser();
+  const docs = await documentsForSite(site.id);
   const categories = Array.from(new Set(docs.map((d) => d.category)));
 
   return (

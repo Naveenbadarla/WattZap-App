@@ -22,14 +22,18 @@ import { Card, DataTagBadge, HealthBadge } from "@/components/ui";
 import { ActionCard, SavingsPipeline } from "@/components/domain";
 import { MATURITY_LEVELS } from "@/lib/data/products";
 
-export default function HomePage() {
-  const { user, activeSite: site } = requireUser();
-  const savings = savingsForSite(site.id);
+export default async function HomePage() {
+  const { user, activeSite: site } = await requireUser();
+  const [savings, allActions, allAlerts, bills, products] = await Promise.all([
+    savingsForSite(site.id),
+    actionsForSite(site.id),
+    alertsForSite(site.id, user.id),
+    billsForSite(site.id),
+    productsForSite(site.id),
+  ]);
   const wallet = walletSummary(savings);
-  const actions = actionsForSite(site.id).filter((a) => a.status !== "done");
-  const alerts = alertsForSite(site.id).filter((a) => !a.read);
-  const bills = billsForSite(site.id);
-  const products = productsForSite(site.id);
+  const actions = allActions.filter((a) => a.status !== "done");
+  const alerts = allAlerts.filter((a) => !a.read);
   const maturity = MATURITY_LEVELS[site.maturityLevel];
 
   // One highest-priority action: prefer the signed-in user's role, then value.

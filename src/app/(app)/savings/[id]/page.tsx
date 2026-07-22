@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { requireUser } from "@/lib/auth";
-import { db, userCanAccessSite } from "@/lib/db";
+import { getSavingsEntry, getSite, userCanAccessSite } from "@/lib/db";
 import { formatDate, formatINR, formatINRFull } from "@/lib/format";
 import { STAGE_LABELS, STAGE_ORDER } from "@/lib/savings";
 import { Card, ConfidenceBadge, DataTagBadge } from "@/components/ui";
@@ -11,12 +11,12 @@ import { productBySlug } from "@/lib/data/products";
 
 export const metadata: Metadata = { title: "Savings calculation" };
 
-export default function SavingsDetailPage({ params }: { params: { id: string } }) {
-  const { user } = requireUser();
-  const entry = db().savings.find((s) => s.id === params.id);
-  if (!entry || !userCanAccessSite(user, entry.siteId)) notFound();
+export default async function SavingsDetailPage({ params }: { params: { id: string } }) {
+  const { user } = await requireUser();
+  const entry = await getSavingsEntry(params.id);
+  if (!entry || !(await userCanAccessSite(user, entry.siteId))) notFound();
 
-  const site = db().sites.find((s) => s.id === entry.siteId);
+  const site = await getSite(entry.siteId);
   const stageIdx = STAGE_ORDER.indexOf(entry.stage);
 
   return (

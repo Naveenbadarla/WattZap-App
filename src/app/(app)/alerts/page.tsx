@@ -29,9 +29,9 @@ const CATEGORY_PRIORITY: AlertCategory[] = [
   "information",
 ];
 
-export default function AlertsPage() {
-  const { activeSite: site } = requireUser();
-  const alerts = alertsForSite(site.id).sort((a, b) => {
+export default async function AlertsPage() {
+  const { user, activeSite: site } = await requireUser();
+  const alerts = (await alertsForSite(site.id, user.id)).sort((a, b) => {
     const cat = CATEGORY_PRIORITY.indexOf(a.category) - CATEGORY_PRIORITY.indexOf(b.category);
     if (cat !== 0) return cat;
     return (b.financialImpact ?? 0) - (a.financialImpact ?? 0);

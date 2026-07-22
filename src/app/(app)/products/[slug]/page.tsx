@@ -5,11 +5,14 @@ import { ArrowRight, CircleCheck, CircleDashed, Loader2, Lock } from "lucide-rea
 import { requireUser } from "@/lib/auth";
 import {
   billsForSite,
-  db,
+  demandEventsForSite,
+  getSite,
   milestonesFor,
   opportunitiesForSite,
+  pfEventsForSite,
   reportsForSite,
   savingsForSite,
+  todProfileForSite,
 } from "@/lib/db";
 import { getEntitlement } from "@/lib/entitlements";
 import { canActivateProduct, ROLE_LABELS } from "@/lib/permissions";
@@ -27,9 +30,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   return { title: p ? p.name : "Product" };
 }
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
-  const { user, activeSite: site } = requireUser();
-  const pwe = getEntitlement(site.id, params.slug as ProductSlug);
+export default async function ProductPage({ params }: { params: { slug: string } }) {
+  const { user, activeSite: site } = await requireUser();
+  const pwe = await getEntitlement(site.id, params.slug as ProductSlug);
   if (!pwe) notFound();
   const { def, entitlement: ent } = pwe;
   const locked = ent.state === "locked";
@@ -174,13 +177,18 @@ function MilestoneList({ milestones }: { milestones: OnboardingMilestone[] }) {
 
 // ---------- EnergyScan ----------
 
-function EnergyScanModule({ siteId, slug }: { siteId: string; slug: string }) {
-  const bills = billsForSite(siteId);
-  const opps = opportunitiesForSite(siteId).filter((o) => !["rejected", "closed"].includes(o.status));
-  const reports = reportsForSite(siteId).filter((r) => r.type.startsWith("EnergyScan"));
+async function EnergyScanModule({ siteId, slug }: { siteId: string; slug: string }) {
+  const [bills, allOpps, allReports, site, todProfile] = await Promise.all([
+    billsForSite(siteId),
+    opportunitiesForSite(siteId),
+    reportsForSite(siteId),
+    getSite(siteId),
+    todProfileForSite(siteId),
+  ]);
+  const opps = allOpps.filter((o) => !["rejected", "closed"].includes(o.status));
+  const reports = allReports.filter((r) => r.type.startsWith("EnergyScan"));
   const isPro = slug === "energyscan-pro";
-  const site = db().sites.find((s) => s.id === siteId);
-  const infoComplete = siteId === "site-ricemill" ? 100 : 55;
+  const infoComplete = bills.length >= 12 ? 100 : 55;
   const billTarget = 12;
 
   return (
@@ -221,7 +229,7 @@ function EnergyScanModule({ siteId, slug }: { siteId: string; slug: string }) {
         </>
       ) : null}
 
-      {isPro && siteId === "site-ricemill" ? (
+      {isPro && todProfile.length > 0 ? (
         <>
           <SectionTitle>Typical day — when your site uses power</SectionTitle>
           <Card className="p-5">
@@ -229,7 +237,7 @@ function EnergyScanModule({ siteId, slug }: { siteId: string; slug: string }) {
               <p className="text-sm text-ink-muted">Built from your uploaded MRI meter files (historical, not live).</p>
               <DataTagBadge tag="historical" />
             </div>
-            <TodProfileChart data={db().todProfile} />
+            <TodProfileChart data={todProfile} />
             <p className="text-xs text-ink-muted mt-2">
               The 10:00 peak is where demand spikes happen — see the dryer start-time opportunity.
             </p>
@@ -259,7 +267,7 @@ function EnergyScanModule({ siteId, slug }: { siteId: string; slug: string }) {
         </>
       ) : null}
 
-      {site?.id === "site-ricemill" ? (
+      {site && site.dataReadiness === "historical_interval" ? (
         <Card className="mt-6 p-5 bg-brand-50/60 border-brand-200">
           <p className="text-sm">
             <strong>Recommended next step:</strong> EMS Lite live monitoring is in onboarding — it will
@@ -274,8 +282,11 @@ function EnergyScanModule({ siteId, slug }: { siteId: string; slug: string }) {
 
 // ---------- PF Guard ----------
 
-function PfGuardModule({ siteId }: { siteId: string }) {
-  const events = db().pfEvents.filter((e) => e.siteId === siteId);
+async function PfGuardModule({ siteId }: { siteId: string }) {
+  const events = await pfEventsForSite(siteId);
+  const verifiedSaving = (await savingsForSite(siteId)).find(
+    (s) => s.product === "pf-guard" && s.verifiedAnnual
+  );
   if (events.length === 0) {
     return (
       <Card className="mt-6 p-5">
@@ -326,27 +337,39 @@ function PfGuardModule({ siteId }: { siteId: string }) {
         ))}
       </div>
 
-      <Card className="mt-6 p-5 bg-verified-50/60 border-verified-100">
-        <h3 className="font-bold text-sm mb-1">Verified result</h3>
-        <p className="text-sm text-ink-soft">
-          The APFC panel repair eliminated the penalty. Verified saving:{" "}
-          <strong className="text-verified-700">₹1.25 lakh/year</strong>.{" "}
-          <Link href="/savings/sav-apfc" className="font-semibold underline">See the calculation</Link>
-        </p>
-        <p className="text-xs text-ink-muted mt-2">
-          Ongoing action: weekly APFC indicator check by the maintenance team until three clean months pass.
-        </p>
-      </Card>
+      {verifiedSaving ? (
+        <Card className="mt-6 p-5 bg-verified-50/60 border-verified-100">
+          <h3 className="font-bold text-sm mb-1">Verified result</h3>
+          <p className="text-sm text-ink-soft">
+            {verifiedSaving.title}. Verified saving:{" "}
+            <strong className="text-verified-700">
+              {formatINR(verifiedSaving.verifiedAnnual!)}/year
+            </strong>
+            .{" "}
+            <Link href={`/savings/${verifiedSaving.id}`} className="font-semibold underline">
+              See the calculation
+            </Link>
+          </p>
+          <p className="text-xs text-ink-muted mt-2">
+            Ongoing action: weekly APFC indicator check by the maintenance team until three clean
+            months pass.
+          </p>
+        </Card>
+      ) : null}
     </>
   );
 }
 
 // ---------- Demand Guard ----------
 
-function DemandGuardModule({ siteId }: { siteId: string }) {
-  const site = db().sites.find((s) => s.id === siteId);
-  const events = db().demandEvents.filter((e) => e.siteId === siteId);
-  const bills = billsForSite(siteId);
+async function DemandGuardModule({ siteId }: { siteId: string }) {
+  const [site, events, bills, opps] = await Promise.all([
+    getSite(siteId),
+    demandEventsForSite(siteId),
+    billsForSite(siteId),
+    opportunitiesForSite(siteId),
+  ]);
+  const demandOpp = opps.find((o) => o.product === "demand-guard");
   if (!site) return null;
   if (events.length === 0) {
     return (
@@ -405,7 +428,12 @@ function DemandGuardModule({ siteId }: { siteId: string }) {
         <p className="text-sm">
           <strong>Operational recommendation:</strong> shift the dryer start time by 20 minutes
           (already being measured) and, after three clean months, reduce contracted demand to 420 kVA.{" "}
-          <Link href="/opportunities/opp-dryer" className="font-semibold underline">View the action</Link>
+          <Link
+            href={demandOpp ? `/opportunities/${demandOpp.id}` : "/opportunities"}
+            className="font-semibold underline"
+          >
+            View the action
+          </Link>
         </p>
       </Card>
     </>
@@ -414,8 +442,9 @@ function DemandGuardModule({ siteId }: { siteId: string }) {
 
 // ---------- Bill Guard ----------
 
-function BillGuardModule({ siteId }: { siteId: string }) {
-  const bills = [...billsForSite(siteId)].reverse();
+async function BillGuardModule({ siteId }: { siteId: string }) {
+  const bills = [...(await billsForSite(siteId))].reverse();
+  const billOpp = (await opportunitiesForSite(siteId)).find((o) => o.product === "bill-guard");
   if (bills.length === 0) {
     return (
       <Card className="mt-6 p-5">
@@ -457,20 +486,24 @@ function BillGuardModule({ siteId }: { siteId: string }) {
           </Card>
         ))}
       </div>
-      <Card className="mt-6 p-5 bg-brand-50/60 border-brand-200">
-        <p className="text-sm">
-          <strong>Money to recover:</strong> the March bill contains a suspected ₹60,000 excess demand
-          charge. <Link href="/opportunities/opp-billmar" className="font-semibold underline">Authorise the review request</Link>
-        </p>
-      </Card>
+      {billOpp ? (
+        <Card className="mt-6 p-5 bg-brand-50/60 border-brand-200">
+          <p className="text-sm">
+            <strong>Money to recover:</strong> {billOpp.plainExplanation}{" "}
+            <Link href={`/opportunities/${billOpp.id}`} className="font-semibold underline">
+              Authorise the review request
+            </Link>
+          </p>
+        </Card>
+      ) : null}
     </>
   );
 }
 
 // ---------- EMS Lite / WattZap Edge ----------
 
-function EmsModule({ siteId }: { siteId: string }) {
-  const milestones = milestonesFor(siteId, "ems-lite");
+async function EmsModule({ siteId }: { siteId: string }) {
+  const milestones = await milestonesFor(siteId, "ems-lite");
   return (
     <>
       <SectionTitle>Live site data</SectionTitle>
@@ -506,8 +539,9 @@ function EmsModule({ siteId }: { siteId: string }) {
 
 // ---------- SolarFit ----------
 
-function SolarFitModule({ siteId, state }: { siteId: string; state: string }) {
-  const site = db().sites.find((s) => s.id === siteId);
+async function SolarFitModule({ siteId, state }: { siteId: string; state: string }) {
+  const site = await getSite(siteId);
+  const solarOpp = (await opportunitiesForSite(siteId)).find((o) => o.product === "solarfit");
   if (!site || state === "locked") return null;
   const scenarios = [
     { size: "100 kW", gen: "1.46 lakh kWh/yr", self: "98%", saving: "₹9.6 lakh/yr", capex: "₹36 lakh", payback: "3.8 yrs" },
@@ -575,7 +609,12 @@ function SolarFitModule({ siteId, state }: { siteId: string; state: string }) {
         <p className="text-sm">
           <strong>Next step:</strong> review this draft with WattZap&apos;s solar engineer, then decide
           between direct purchase and SolarLease (subject to approval).{" "}
-          <Link href="/opportunities/opp-solar" className="font-semibold underline">Open the decision card</Link>
+          <Link
+            href={solarOpp ? `/opportunities/${solarOpp.id}` : "/opportunities"}
+            className="font-semibold underline"
+          >
+            Open the decision card
+          </Link>
         </p>
       </Card>
     </>
@@ -610,9 +649,9 @@ function SolarLeaseModule() {
 
 // ---------- Savings Assurance ----------
 
-function SavingsAssuranceModule({ siteId }: { siteId: string }) {
-  const milestones = milestonesFor(siteId, "savings-assurance");
-  const verified = savingsForSite(siteId).filter((s) => s.verifiedAnnual);
+async function SavingsAssuranceModule({ siteId }: { siteId: string }) {
+  const milestones = await milestonesFor(siteId, "savings-assurance");
+  const verified = (await savingsForSite(siteId)).filter((s) => s.verifiedAnnual);
   return (
     <>
       {verified.length > 0 ? (

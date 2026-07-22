@@ -6,8 +6,8 @@ import { LoginForm } from "./login-form";
 
 export const metadata: Metadata = { title: "Sign in" };
 
-export default function LoginPage() {
-  if (currentUser()) redirect("/");
+export default async function LoginPage() {
+  if (await currentUser()) redirect("/");
   return (
     <main className="min-h-screen bg-surface flex flex-col items-center justify-center p-4">
       <div className="w-full max-w-md">

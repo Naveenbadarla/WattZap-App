@@ -1,7 +1,12 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { currentUser } from "@/lib/auth";
-import { alertsForSite, billsForSite, db, savingsForSite } from "@/lib/db";
+import {
+  alertsForSite,
+  billsForSite,
+  demandEventsForSite,
+  savingsForSite,
+} from "@/lib/db";
 import { formatINR } from "@/lib/format";
 import { productsForSite } from "@/lib/entitlements";
 import { walletSummary } from "@/lib/savings";
@@ -23,7 +28,7 @@ const bodySchema = z.object({
 });
 
 export async function POST(req: Request) {
-  const ctx = currentUser();
+  const ctx = await currentUser();
   if (!ctx) return NextResponse.json({ error: "Not signed in" }, { status: 401 });
 
   let parsed;
@@ -33,14 +38,24 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid question" }, { status: 400 });
   }
 
-  const answer = buildAnswer(parsed.question.toLowerCase(), ctx.activeSite.id, ctx.activeSite.name);
+  const answer = await buildAnswer(
+    parsed.question.toLowerCase(),
+    ctx.activeSite.id,
+    ctx.activeSite.name,
+    ctx.user.id
+  );
   return NextResponse.json({ answer });
 }
 
-function buildAnswer(q: string, siteId: string, siteName: string): string {
-  const savings = savingsForSite(siteId);
+async function buildAnswer(
+  q: string,
+  siteId: string,
+  siteName: string,
+  userId: string
+): Promise<string> {
+  const savings = await savingsForSite(siteId);
   const wallet = walletSummary(savings);
-  const bills = billsForSite(siteId);
+  const bills = await billsForSite(siteId);
   const latest = bills[bills.length - 1];
 
   if (q.includes("power factor")) {
@@ -55,7 +70,7 @@ function buildAnswer(q: string, siteId: string, siteName: string): string {
       : "No bills have been analysed for this site yet. Upload your electricity bills and I can explain exactly what changed.";
   }
   if (q.includes("demand")) {
-    const n = db().demandEvents.filter((d) => d.siteId === siteId).length;
+    const n = (await demandEventsForSite(siteId)).length;
     return n > 0
       ? `Your demand increases when several large machines run at the same time. ${siteName} had ${n} demand spikes in the last 90 days, mostly when the dryer started while both hullers were running. Each spike raises the demand charge for the whole month. The recommended fix — shifting the dryer start by 20 minutes — is already being measured.`
       : "No demand spikes have been detected from the data available for this site so far.";
@@ -79,7 +94,9 @@ function buildAnswer(q: string, siteId: string, siteName: string): string {
     return `So far at ${siteName}: ${formatINR(wallet.identified)}/year identified, ${formatINR(wallet.approved)}/year approved, ${formatINR(wallet.implemented)}/year implemented and ${formatINR(wallet.verified)}/year verified by measurement. About ${formatINR(wallet.monthlyAtRisk)}/month is still at risk until the pending actions are taken. See the Savings Wallet for every calculation.`;
   }
   if (q.includes("product") || q.includes("activate next")) {
-    const recommended = productsForSite(siteId).filter((p) => p.entitlement.state === "recommended");
+    const recommended = (await productsForSite(siteId)).filter(
+      (p) => p.entitlement.state === "recommended"
+    );
     if (recommended.length > 0) {
       return (
         "WattZap currently recommends:\n" +
@@ -92,7 +109,9 @@ function buildAnswer(q: string, siteId: string, siteName: string): string {
     return "No new product is recommended right now. Your Savings Journey page shows what unlocks next and why.";
   }
   if (q.includes("data") && q.includes("missing")) {
-    const dataIssues = alertsForSite(siteId).filter((a) => a.category === "data_issue");
+    const dataIssues = (await alertsForSite(siteId, userId)).filter(
+      (a) => a.category === "data_issue"
+    );
     return dataIssues.length > 0
       ? `One data issue is open: ${dataIssues[0].whatHappened} ${dataIssues[0].recommendedAction}`
       : "No data issues are open for this site right now.";

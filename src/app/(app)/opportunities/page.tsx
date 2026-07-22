@@ -8,10 +8,12 @@ import { ActionCard, OpportunityCard } from "@/components/domain";
 
 export const metadata: Metadata = { title: "Opportunities" };
 
-export default function OpportunitiesPage() {
-  const { user, activeSite: site } = requireUser();
-  const opportunities = opportunitiesForSite(site.id);
-  const actions = actionsForSite(site.id);
+export default async function OpportunitiesPage() {
+  const { user, activeSite: site } = await requireUser();
+  const [opportunities, actions] = await Promise.all([
+    opportunitiesForSite(site.id),
+    actionsForSite(site.id),
+  ]);
   const open = opportunities.filter((o) => !["rejected", "closed", "verified"].includes(o.status));
   const settled = opportunities.filter((o) => ["rejected", "closed", "verified"].includes(o.status));
   const totalValue = open.reduce((t, o) => t + o.annualSaving, 0);
