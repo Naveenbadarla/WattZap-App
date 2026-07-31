@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/company-intro/09-next-step.json",
+  "template": "title-slide",
+  "title": "Start with a free EnergyScan",
+  "pageMarker": "9/9",
+  "outputs": {
+    "html": "brand/generated/company-intro/09-next-step.html",
+    "png": "brand/generated/company-intro/09-next-step.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/company-intro/04-product-family.json",
+  "template": "four-card-requirements",
+  "title": "A product family built around the journey",
+  "pageMarker": "4/9",
+  "outputs": {
+    "html": "brand/generated/company-intro/04-product-family.html",
+    "png": "brand/generated/company-intro/04-product-family.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

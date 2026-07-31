@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/company-intro/07-case-study.json",
+  "template": "business-case",
+  "title": "What EnergyScan finds at a rice mill",
+  "pageMarker": "7/9",
+  "outputs": {
+    "html": "brand/generated/company-intro/07-case-study.html",
+    "png": "brand/generated/company-intro/07-case-study.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

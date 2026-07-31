@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "three-column-overview",
+  "deck": "WattZap — Company Introduction",
+  "slideNumber": 6,
+  "totalSlides": 9,
+  "sectionLabel": "Trust & Verification",
+  "title": "Savings are verified, not just promised",
+  "titleAccent": "verified",
+  "subtitle": "The Savings Assurance method behind every rupee we claim",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "How WattZap proves savings: an agreed baseline, measurement and verification against the DISCOM bill, and full transparency with tagged data and audit trails.",
+  "content": {
+    "columns": [
+      {
+        "icon": "document",
+        "heading": "Agree the baseline",
+        "bullets": [
+          "The agreed 'before' picture comes first, not after",
+          "Built from 12 months of bills and meter data",
+          "Fair adjustments for production changes"
+        ]
+      },
+      {
+        "icon": "meter",
+        "heading": "Measure & verify",
+        "bullets": [
+          "Savings compared bill-to-bill against the DISCOM bill",
+          "Named reviewer and customer approver on each saving",
+          "Full evidence: bills, service reports, meter traces"
+        ]
+      },
+      {
+        "icon": "shield",
+        "heading": "Transparent by design",
+        "bullets": [
+          "Savings Wallet shows every calculation in full",
+          "Every number tagged: estimated, live or verified",
+          "Complete audit trail of approvals and uploads"
+        ]
+      }
+    ],
+    "outcomes": [
+      "Customers pay from measured savings, not upfront kit",
+      "Draft numbers are clearly marked and never final"
+    ]
+  }
+}

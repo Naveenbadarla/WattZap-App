@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "four-card-requirements",
+  "deck": "WattZap — Company Introduction",
+  "slideNumber": 4,
+  "totalSlides": 9,
+  "sectionLabel": "Products",
+  "title": "A product family built around the journey",
+  "titleAccent": "product family",
+  "subtitle": "Eleven products across six stages — from free audit to verified savings",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "The WattZap product family in four groups: EnergyScan diagnostics, the Guard protection family, optimise and generate products, and finance and prove products.",
+  "content": {
+    "cards": [
+      {
+        "icon": "meter",
+        "heading": "Diagnose — EnergyScan",
+        "bullets": [
+          "EnergyScan Lite: free first check from one bill",
+          "EnergyScan Pro: 12-month diagnosis, prioritised plan",
+          "Every finding carries value, payback and confidence"
+        ]
+      },
+      {
+        "icon": "shield",
+        "heading": "Protect — the Guards",
+        "bullets": [
+          "PF Guard and Demand Guard stop recurring penalties",
+          "Bill Guard checks every bill line by line",
+          "Solar Guard watches existing solar performance"
+        ]
+      },
+      {
+        "icon": "gear",
+        "heading": "Optimise & Generate",
+        "bullets": [
+          "WattZap Edge connects meters and machines securely",
+          "EMS Lite: live monitoring, plain-language alerts",
+          "SolarFit sizes solar from the real load profile"
+        ]
+      },
+      {
+        "icon": "rupee",
+        "heading": "Finance & Prove",
+        "bullets": [
+          "SolarLease: solar without heavy upfront investment",
+          "Savings Assurance verifies savings against baselines",
+          "Models run from free audit to monthly subscription"
+        ]
+      }
+    ],
+    "note": "Product access is entitlement-controlled — nothing is charged without a written proposal the customer approves."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/company-intro/05-the-platform.json",
+  "template": "architecture",
+  "title": "The Savings Command Centre",
+  "pageMarker": "5/9",
+  "outputs": {
+    "html": "brand/generated/company-intro/05-the-platform.html",
+    "png": "brand/generated/company-intro/05-the-platform.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

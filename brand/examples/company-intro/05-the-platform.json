@@ -1,0 +1,38 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "architecture",
+  "deck": "WattZap — Company Introduction",
+  "slideNumber": 5,
+  "totalSlides": 9,
+  "sectionLabel": "The Platform",
+  "title": "The Savings Command Centre",
+  "titleAccent": "Savings Command Centre",
+  "subtitle": "From site data to verified savings — one connected platform",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Platform architecture in four layers: on-site hardware, the WattZap data platform, the customer-facing Savings Command Centre, and the trust layer.",
+  "content": {
+    "layers": [
+      {
+        "icon": "plug",
+        "heading": "On site",
+        "items": ["WattZap Edge device", "Existing meters & machines", "Solar systems"]
+      },
+      {
+        "icon": "signal",
+        "heading": "WattZap platform",
+        "items": ["Secure data streaming", "Baselines & tariff models", "Alerts & analytics"]
+      },
+      {
+        "icon": "chart",
+        "heading": "Customer experience",
+        "items": ["Savings Command Centre", "Savings Wallet & reports", "WattZap Coach"]
+      },
+      {
+        "icon": "shield",
+        "heading": "Trust layer",
+        "items": ["Data provenance tags", "Audit trail on every action", "Independent verification"]
+      }
+    ],
+    "note": "Every number is tagged — historical, uploaded, estimated, simulated, live or verified — so customers always know what they are looking at."
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "process-flow",
+  "deck": "WattZap — Company Introduction",
+  "slideNumber": 3,
+  "totalSlides": 9,
+  "sectionLabel": "How It Works",
+  "title": "One journey from audit to proven savings",
+  "titleAccent": "proven savings",
+  "subtitle": "Six stages, each with named products — customers pay as value is proved",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "The six-stage WattZap journey with the products that serve each stage: EnergyScan, the Guard family, EMS Lite and Edge, SolarFit, SolarLease and Savings Assurance.",
+  "content": {
+    "steps": [
+      {
+        "icon": "meter",
+        "heading": "Diagnose",
+        "caption": "Understand where the site loses money — EnergyScan"
+      },
+      {
+        "icon": "shield",
+        "heading": "Protect",
+        "caption": "Stop penalties and billing errors — the Guard family"
+      },
+      {
+        "icon": "gear",
+        "heading": "Optimise",
+        "caption": "Monitor and run the site efficiently — EMS Lite + Edge"
+      },
+      {
+        "icon": "sun",
+        "heading": "Generate",
+        "caption": "Right-sized rooftop solar — SolarFit"
+      },
+      {
+        "icon": "rupee",
+        "heading": "Finance",
+        "caption": "Savings assets without heavy upfront investment — SolarLease"
+      },
+      {
+        "icon": "chart",
+        "heading": "Prove",
+        "caption": "Measure and verify every saving — Savings Assurance"
+      }
+    ],
+    "outcomes": [
+      "Free audit first; paid products only where value is found",
+      "Locked stages always show what they do and what unlocks them",
+      "Nothing activates without customer approval"
+    ]
+  }
+}

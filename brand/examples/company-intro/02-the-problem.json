@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "three-column-overview",
+  "deck": "WattZap — Company Introduction",
+  "slideNumber": 2,
+  "totalSlides": 9,
+  "sectionLabel": "The Problem",
+  "title": "Businesses overpay for electricity, invisibly",
+  "titleAccent": "overpay",
+  "subtitle": "Three ways money leaks from an industrial electricity bill",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "The problem: recurring penalties and billing errors, invisible operational waste, and an equipment market that never proves savings.",
+  "content": {
+    "columns": [
+      {
+        "icon": "rupee",
+        "heading": "Penalties & bill errors",
+        "bullets": [
+          "Power-factor and demand penalties quietly recur on HT bills",
+          "Billing errors and hidden charges go unchallenged",
+          "Sanctioned demand rarely matches how the site actually runs"
+        ]
+      },
+      {
+        "icon": "bolt",
+        "heading": "Invisible waste",
+        "bullets": [
+          "Idle machines and inefficient motors burn money unseen",
+          "No live visibility of usage, demand or power factor",
+          "Solar systems underperform without anyone noticing"
+        ]
+      },
+      {
+        "icon": "shield",
+        "heading": "A market that sells kit",
+        "bullets": [
+          "Vendors sell equipment, not outcomes",
+          "Savings are promised upfront but never measured",
+          "Owners get no independent proof of what they saved"
+        ]
+      }
+    ],
+    "outcomes": [
+      "WattZap's answer: measured savings, not equipment sales",
+      "Every claim verified against the DISCOM bill"
+    ]
+  }
+}

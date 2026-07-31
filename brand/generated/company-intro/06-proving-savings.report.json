@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/company-intro/06-proving-savings.json",
+  "template": "three-column-overview",
+  "title": "Savings are verified, not just promised",
+  "pageMarker": "6/9",
+  "outputs": {
+    "html": "brand/generated/company-intro/06-proving-savings.html",
+    "png": "brand/generated/company-intro/06-proving-savings.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

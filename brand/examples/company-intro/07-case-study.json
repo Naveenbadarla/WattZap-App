@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "business-case",
+  "deck": "WattZap — Company Introduction",
+  "slideNumber": 7,
+  "totalSlides": 9,
+  "sectionLabel": "Illustrative Case Study",
+  "title": "What EnergyScan finds at a rice mill",
+  "titleAccent": "EnergyScan",
+  "subtitle": "Our demonstration dataset — an HT-connected mill in Telangana",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Illustrative case study from the WattZap demonstration dataset: savings identified, first verified saving, a billing error caught and solar payback at a rice mill.",
+  "content": {
+    "metrics": [
+      {
+        "value": "₹8.4L/yr",
+        "label": "Savings identified",
+        "caption": "7 opportunities from EnergyScan Pro"
+      },
+      {
+        "value": "₹1.25L/yr",
+        "label": "First verified saving",
+        "caption": "APFC repair — payback under 4 months"
+      },
+      {
+        "value": "₹60,000",
+        "label": "Billing error caught",
+        "caption": "Excess demand charge disputed"
+      },
+      {
+        "value": "3.7 yrs",
+        "label": "Solar payback",
+        "caption": "150 kWp sized to the daytime load"
+      }
+    ],
+    "bullets": [
+      "Idle running worth ₹2.1 lakh/yr found in the lunch-break load curve",
+      "Shifting drying to off-peak tariff windows saves ₹1.2 lakh/yr",
+      "11 demand spikes in 90 days — schedule changes avoid the penalties",
+      "Every figure carries its data tag and confidence level"
+    ],
+    "note": "Illustrative demonstration dataset from the WattZap platform — not audited customer results."
+  }
+}

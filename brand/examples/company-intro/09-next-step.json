@@ -1,0 +1,23 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "title-slide",
+  "deck": "WattZap — Company Introduction",
+  "slideNumber": 9,
+  "totalSlides": 9,
+  "sectionLabel": "Next Step",
+  "title": "Start with a free EnergyScan",
+  "titleAccent": "EnergyScan",
+  "subtitle": "One electricity bill is enough to begin",
+  "supporting": "EnergyScan Lite reads a single bill and returns an energy-cost score, likely problem areas and an estimated savings range — with a clear next step and no obligation.",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Closing slide: start with a free EnergyScan — one electricity bill is enough to begin, with first findings within a day.",
+  "content": {
+    "kicker": "The first step costs nothing",
+    "highlights": [
+      "Free for qualified customers",
+      "First findings within a day",
+      "Measured savings, not equipment sales"
+    ],
+    "dateLine": "WattZap Energy Solutions · Naveen Badarla, Founder · 2026"
+  }
+}

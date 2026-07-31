@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/company-intro/02-the-problem.json",
+  "template": "three-column-overview",
+  "title": "Businesses overpay for electricity, invisibly",
+  "pageMarker": "2/9",
+  "outputs": {
+    "html": "brand/generated/company-intro/02-the-problem.html",
+    "png": "brand/generated/company-intro/02-the-problem.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

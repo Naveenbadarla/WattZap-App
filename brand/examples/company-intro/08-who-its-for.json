@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "comparison",
+  "deck": "WattZap — Company Introduction",
+  "slideNumber": 8,
+  "totalSlides": 9,
+  "sectionLabel": "Who It's For",
+  "title": "Built for energy-intensive businesses",
+  "titleAccent": "energy-intensive",
+  "subtitle": "Industrial and commercial sites where electricity is a top-three cost",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Customer segments: rice mills and agro-processing, cold storage and food processing, EV charging and commercial sites.",
+  "content": {
+    "options": [
+      {
+        "icon": "factory",
+        "heading": "Rice mills & agro",
+        "tagline": "Motor-heavy loads on penalty-prone HT connections",
+        "bullets": [
+          "PF and demand penalties from mixed motor loads",
+          "Tariff savings by shifting drying to off-peak windows",
+          "Strong rooftop solar economics on daytime loads"
+        ]
+      },
+      {
+        "icon": "battery",
+        "heading": "Cold storage & food",
+        "tagline": "Round-the-clock loads where waste hides at night",
+        "bullets": [
+          "Night-time consumption drift caught early",
+          "Compressor staging and defrost optimisation",
+          "24×7 monitoring that pays for itself quickly"
+        ]
+      },
+      {
+        "icon": "ev-charger",
+        "heading": "EV charging & commercial",
+        "tagline": "New loads with demand charges to manage",
+        "bullets": [
+          "Demand-charge control for charger clusters",
+          "Solar self-consumption for daytime loads",
+          "Session-level cost and margin analytics"
+        ]
+      }
+    ],
+    "note": "Operating region: Telangana & Andhra Pradesh. Also suited to poultry, warehousing and manufacturing SMEs."
+  }
+}

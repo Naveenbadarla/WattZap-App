@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/company-intro/08-who-its-for.json",
+  "template": "comparison",
+  "title": "Built for energy-intensive businesses",
+  "pageMarker": "8/9",
+  "outputs": {
+    "html": "brand/generated/company-intro/08-who-its-for.html",
+    "png": "brand/generated/company-intro/08-who-its-for.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}
