@@ -1,0 +1,49 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "three-column-overview",
+  "deck": "WattZap — Company Introduction for Legal Partners",
+  "slideNumber": 2,
+  "totalSlides": 7,
+  "sectionLabel": "What We Do",
+  "title": "Measured savings, not equipment sales",
+  "titleAccent": "Measured savings",
+  "subtitle": "What WattZap does for energy-intensive businesses",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Overview of the WattZap service in three parts: diagnose with EnergyScan, optimise and protect through the platform, and prove savings against the DISCOM bill.",
+  "content": {
+    "columns": [
+      {
+        "icon": "meter",
+        "heading": "Diagnose — EnergyScan",
+        "bullets": [
+          "Free EnergyScan audit of bills, loads and tariffs",
+          "Smart metering installed at the customer site",
+          "Baseline load profile within two weeks"
+        ]
+      },
+      {
+        "icon": "gear",
+        "heading": "Optimise & Protect",
+        "bullets": [
+          "WattZap platform monitors usage in real time",
+          "Tariff, power-factor and demand optimisation",
+          "Protection against outages and power-quality issues"
+        ]
+      },
+      {
+        "icon": "chart",
+        "heading": "Prove & Share",
+        "bullets": [
+          "Savings validated against the DISCOM bill",
+          "Customers pay from measured savings, not upfront kit",
+          "Savings Command Centre reporting every month"
+        ]
+      }
+    ],
+    "outcomes": [
+      "Focus segments: rice mills, EV charging, commercial sites",
+      "Operating region: Telangana & Andhra Pradesh",
+      "Hardware built with engineering partners"
+    ]
+  }
+}

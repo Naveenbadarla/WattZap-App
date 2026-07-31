@@ -1,0 +1,50 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "timeline",
+  "deck": "WattZap — Company Introduction for Legal Partners",
+  "slideNumber": 4,
+  "totalSlides": 7,
+  "sectionLabel": "Where We Are",
+  "title": "Where WattZap stands today",
+  "titleAccent": "today",
+  "subtitle": "From build to commercial launch — indicative plan",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Timeline from today to scale: product built, pilots and website go-live in the next ninety days, first paying customers at go-live, then regional rollout.",
+  "content": {
+    "milestones": [
+      {
+        "label": "Today",
+        "heading": "Product & brand built",
+        "bullets": [
+          "Customer platform and EnergyScan flow developed",
+          "Brand system and company website in final build"
+        ]
+      },
+      {
+        "label": "Next 90 days",
+        "heading": "Pilots & website go-live",
+        "bullets": [
+          "Rice mill and EV charging pilots planned with VVDN-built hardware",
+          "Website and customer onboarding go live"
+        ]
+      },
+      {
+        "label": "Go-live",
+        "heading": "First paying customers",
+        "bullets": [
+          "Commercial agreements signed and compliance in place",
+          "Savings-share billing begins"
+        ]
+      },
+      {
+        "label": "Scale",
+        "heading": "Regional rollout",
+        "bullets": [
+          "Expansion across Telangana & Andhra Pradesh",
+          "Financing partners for solar and equipment"
+        ]
+      }
+    ],
+    "note": "Working draft — dates indicative; legal readiness is the gate for go-live."
+  }
+}

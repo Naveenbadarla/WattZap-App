@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/legal-intro/06-documents-to-draft.json",
+  "template": "comparison",
+  "title": "Documents we need drafted",
+  "pageMarker": "6/7",
+  "outputs": {
+    "html": "brand/generated/legal-intro/06-documents-to-draft.html",
+    "png": "brand/generated/legal-intro/06-documents-to-draft.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

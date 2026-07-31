@@ -1,0 +1,23 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "title-slide",
+  "deck": "WattZap — Company Introduction for Legal Partners",
+  "slideNumber": 1,
+  "totalSlides": 7,
+  "sectionLabel": "Company Introduction",
+  "title": "WattZap Energy Solutions",
+  "titleAccent": "Energy Solutions",
+  "subtitle": "An introduction to WattZap and the legal support we need to go live",
+  "supporting": "WattZap helps Indian businesses cut electricity costs through measured, verified savings — an audit-led, technology-driven service now preparing for commercial launch.",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Title slide: WattZap Energy Solutions — company introduction and request for legal support ahead of commercial go-live.",
+  "content": {
+    "kicker": "Company Introduction & Legal Support Brief",
+    "highlights": [
+      "Measured savings, not equipment sales",
+      "Energy technology for Telangana & AP",
+      "Preparing for commercial go-live"
+    ],
+    "dateLine": "Prepared for our legal partners · August 2026 · Naveen Badarla, Founder"
+  }
+}

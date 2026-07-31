@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/legal-intro/07-proposed-engagement.json",
+  "template": "three-column-overview",
+  "title": "How we would like to work together",
+  "pageMarker": "7/7",
+  "outputs": {
+    "html": "brand/generated/legal-intro/07-proposed-engagement.html",
+    "png": "brand/generated/legal-intro/07-proposed-engagement.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

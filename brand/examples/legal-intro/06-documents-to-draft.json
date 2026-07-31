@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "comparison",
+  "deck": "WattZap — Company Introduction for Legal Partners",
+  "slideNumber": 6,
+  "totalSlides": 7,
+  "sectionLabel": "Legal Support — Drafting",
+  "title": "Documents we need drafted",
+  "titleAccent": "drafted",
+  "subtitle": "Three families of agreements, roughly in priority order",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Three families of documents WattZap needs drafted: customer agreements first, then partner and vendor agreements, then company and platform documentation.",
+  "content": {
+    "options": [
+      {
+        "icon": "factory",
+        "heading": "Customer Agreements",
+        "badge": "First priority",
+        "featured": true,
+        "tagline": "The paper behind every rupee of revenue",
+        "bullets": [
+          "EnergyScan audit terms and site-access consent",
+          "Pilot agreement for 90-day deployments",
+          "Savings-share service agreement with billing terms",
+          "Data-use and metering consent clauses"
+        ]
+      },
+      {
+        "icon": "gear",
+        "heading": "Partner & Vendor",
+        "tagline": "Hardware, installation and suppliers",
+        "bullets": [
+          "NDA and MSA with hardware engineering partners",
+          "Statements of work for pilot hardware builds",
+          "Installer and procurement vendor terms"
+        ]
+      },
+      {
+        "icon": "document",
+        "heading": "Company & Platform",
+        "tagline": "The company's own foundations",
+        "bullets": [
+          "Founder, employment and ESOP documentation",
+          "IP assignment for platform and brand assets",
+          "Platform terms of service and privacy policy"
+        ]
+      }
+    ],
+    "note": "Existing drafts, where any, will be shared for review rather than fresh drafting."
+  }
+}

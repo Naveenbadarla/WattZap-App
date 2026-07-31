@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/legal-intro/01-title-intro.json",
+  "template": "title-slide",
+  "title": "WattZap Energy Solutions",
+  "pageMarker": "1/7",
+  "outputs": {
+    "html": "brand/generated/legal-intro/01-title-intro.html",
+    "png": "brand/generated/legal-intro/01-title-intro.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

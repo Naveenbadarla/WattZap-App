@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/legal-intro/04-where-we-stand.json",
+  "template": "timeline",
+  "title": "Where WattZap stands today",
+  "pageMarker": "4/7",
+  "outputs": {
+    "html": "brand/generated/legal-intro/04-where-we-stand.html",
+    "png": "brand/generated/legal-intro/04-where-we-stand.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

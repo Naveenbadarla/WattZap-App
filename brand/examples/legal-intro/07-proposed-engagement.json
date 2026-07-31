@@ -1,0 +1,49 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "three-column-overview",
+  "deck": "WattZap — Company Introduction for Legal Partners",
+  "slideNumber": 7,
+  "totalSlides": 7,
+  "sectionLabel": "Proposed Engagement",
+  "title": "How we would like to work together",
+  "titleAccent": "work together",
+  "subtitle": "A phased engagement, sized for an early-stage company",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Proposed three-phase legal engagement: go-live essentials now, the agreement suite over the first ninety days, and ongoing retainer counsel.",
+  "content": {
+    "columns": [
+      {
+        "icon": "clock",
+        "heading": "Now — before go-live",
+        "bullets": [
+          "Compliance checklist and gap review",
+          "Platform terms of service and privacy policy",
+          "Pilot agreement for the first two sites"
+        ]
+      },
+      {
+        "icon": "document",
+        "heading": "First 90 days",
+        "bullets": [
+          "Customer savings-share agreement suite",
+          "Partner NDA, MSA and vendor terms",
+          "DPDP Act consent and notice pack"
+        ]
+      },
+      {
+        "icon": "shield",
+        "heading": "Ongoing",
+        "bullets": [
+          "Retainer counsel for contracts and filings",
+          "Regulatory watch on energy and data rules",
+          "Support as financing partners come on board"
+        ]
+      }
+    ],
+    "outcomes": [
+      "Seeking a fixed-fee scope for go-live work",
+      "Plus a monthly retainer for ongoing counsel",
+      "Contact: Naveen Badarla, Founder, WattZap"
+    ]
+  }
+}

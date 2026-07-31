@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "four-card-requirements",
+  "deck": "WattZap — Company Introduction for Legal Partners",
+  "slideNumber": 5,
+  "totalSlides": 7,
+  "sectionLabel": "Legal Support — Compliance",
+  "title": "Compliance support we need to go live",
+  "titleAccent": "go live",
+  "subtitle": "Where we need your advice before commercial launch",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Four compliance areas where WattZap seeks legal advice: corporate and tax, data protection, energy sector rules, and website and consumer law.",
+  "content": {
+    "cards": [
+      {
+        "icon": "gear",
+        "heading": "Corporate & Tax",
+        "bullets": [
+          "Company structure and Companies Act 2013 filings",
+          "GST registration and invoicing for savings-share fees",
+          "State registrations: Shops & Establishments, professional tax"
+        ]
+      },
+      {
+        "icon": "shield",
+        "heading": "Data Protection",
+        "bullets": [
+          "DPDP Act 2023 readiness for customer energy data",
+          "Consent, notices and retention for metering data",
+          "Platform privacy policy and processor terms"
+        ]
+      },
+      {
+        "icon": "bolt",
+        "heading": "Energy Sector Rules",
+        "bullets": [
+          "Electricity Act 2003 and state regulator norms",
+          "EV charging guidelines and DISCOM interfaces",
+          "Licences or exemptions our model actually needs"
+        ]
+      },
+      {
+        "icon": "document",
+        "heading": "Website & Consumer",
+        "bullets": [
+          "Terms of service for the platform and website",
+          "Consumer protection view on published savings claims",
+          "Marketing and testimonial compliance"
+        ]
+      }
+    ],
+    "note": "Working draft — we want your view on the full checklist, not just these items."
+  }
+}

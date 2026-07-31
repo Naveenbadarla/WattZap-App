@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "process-flow",
+  "deck": "WattZap — Company Introduction for Legal Partners",
+  "slideNumber": 3,
+  "totalSlides": 7,
+  "sectionLabel": "How It Works",
+  "title": "The WattZap customer journey",
+  "titleAccent": "customer journey",
+  "subtitle": "Six stages — and each one carries contracts and compliance",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "The six-stage WattZap customer journey: diagnose, protect, optimise, generate, finance and prove, with where contracts sit along the journey.",
+  "content": {
+    "steps": [
+      {
+        "icon": "meter",
+        "heading": "Diagnose",
+        "caption": "Free EnergyScan audit and baseline metering"
+      },
+      {
+        "icon": "shield",
+        "heading": "Protect",
+        "caption": "Power-quality and outage protection"
+      },
+      {
+        "icon": "gear",
+        "heading": "Optimise",
+        "caption": "Tariff and load optimisation via the platform"
+      },
+      {
+        "icon": "sun",
+        "heading": "Generate",
+        "caption": "Rooftop solar where the numbers justify it"
+      },
+      {
+        "icon": "rupee",
+        "heading": "Finance",
+        "caption": "Savings-linked commercial models, no upfront sale"
+      },
+      {
+        "icon": "chart",
+        "heading": "Prove",
+        "caption": "Savings verified against the DISCOM bill"
+      }
+    ],
+    "outcomes": [
+      "Customer contracts sit at Diagnose, Finance and Prove",
+      "Partner contracts sit behind Protect and Generate",
+      "Customer energy data flows through every stage"
+    ]
+  }
+}

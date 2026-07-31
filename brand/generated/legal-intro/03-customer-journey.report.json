@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/legal-intro/03-customer-journey.json",
+  "template": "process-flow",
+  "title": "The WattZap customer journey",
+  "pageMarker": "3/7",
+  "outputs": {
+    "html": "brand/generated/legal-intro/03-customer-journey.html",
+    "png": "brand/generated/legal-intro/03-customer-journey.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/legal-intro/05-compliance-support.json",
+  "template": "four-card-requirements",
+  "title": "Compliance support we need to go live",
+  "pageMarker": "5/7",
+  "outputs": {
+    "html": "brand/generated/legal-intro/05-compliance-support.html",
+    "png": "brand/generated/legal-intro/05-compliance-support.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}
