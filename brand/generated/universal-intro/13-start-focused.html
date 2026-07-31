@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Start focused, prove value, then scale</title>
+<style>
+@font-face {
+  font-family: "InterVariable";
+  src: url("../../assets/fonts/InterVariable.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+}
+/*
+ * GENERATED FILE — do not edit by hand.
+ * Source of truth: brand/tokens/brand-tokens.json (version 1.0.0)
+ * Regenerate with: npm run brand:tokens
+ */
+:root {
+  --wz-color-navy: #071A2D;
+  --wz-color-navy-deep: #04111F;
+  --wz-color-surface: #0A2238;
+  --wz-color-surface-raised: #0D2A44;
+  --wz-color-card-fill: rgba(10, 34, 56, 0.72);
+  --wz-color-card-fill-strong: rgba(13, 42, 68, 0.85);
+  --wz-color-cyan: #00D4FF;
+  --wz-color-green: #21F59B;
+  --wz-color-gold: #FFC857;
+  --wz-color-gold-pale: #FFE29A;
+  --wz-color-white: #FFFFFF;
+  --wz-color-text-primary: #FFFFFF;
+  --wz-color-text-secondary: #9FB3C8;
+  --wz-color-text-muted: #6E8299;
+  --wz-color-grid-line: rgba(0, 212, 255, 0.055);
+  --wz-color-border-cyan: rgba(0, 212, 255, 0.28);
+  --wz-color-border-green: rgba(33, 245, 155, 0.25);
+  --wz-color-border-faint: rgba(159, 179, 200, 0.14);
+  --wz-gradient-energy: linear-gradient(90deg, #00D4FF 0%, #21F59B 100%);
+  --wz-gradient-solar: linear-gradient(90deg, #FFC857 0%, #FFE29A 100%);
+  --wz-gradient-canvas: radial-gradient(1200px 700px at 18% 12%, rgba(0, 212, 255, 0.10), transparent 60%), radial-gradient(1100px 650px at 85% 88%, rgba(33, 245, 155, 0.08), transparent 60%), linear-gradient(160deg, #0A2238 0%, #071A2D 45%, #04111F 100%);
+  --wz-glow-subtle: 0 0 24px rgba(0, 212, 255, 0.10);
+  --wz-glow-card: 0 0 32px rgba(0, 212, 255, 0.08), 0 12px 40px rgba(0, 0, 0, 0.35);
+  --wz-glow-accent: 0 0 18px rgba(33, 245, 155, 0.30);
+  --wz-font-family: "InterVariable", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --wz-type-display-size: 88px;
+  --wz-type-display-weight: 800;
+  --wz-type-display-line-height: 1.05;
+  --wz-type-display-letter-spacing: -0.02em;
+  --wz-type-h1-size: 64px;
+  --wz-type-h1-weight: 800;
+  --wz-type-h1-line-height: 1.08;
+  --wz-type-h1-letter-spacing: -0.02em;
+  --wz-type-subtitle-size: 32px;
+  --wz-type-subtitle-weight: 500;
+  --wz-type-subtitle-line-height: 1.3;
+  --wz-type-subtitle-letter-spacing: 0;
+  --wz-type-section-label-size: 22px;
+  --wz-type-section-label-weight: 600;
+  --wz-type-section-label-line-height: 1.2;
+  --wz-type-section-label-letter-spacing: 0.14em;
+  --wz-type-card-heading-size: 30px;
+  --wz-type-card-heading-weight: 700;
+  --wz-type-card-heading-line-height: 1.2;
+  --wz-type-card-heading-letter-spacing: -0.01em;
+  --wz-type-body-size: 24px;
+  --wz-type-body-weight: 400;
+  --wz-type-body-line-height: 1.45;
+  --wz-type-body-letter-spacing: 0;
+  --wz-type-caption-size: 20px;
+  --wz-type-caption-weight: 500;
+  --wz-type-caption-line-height: 1.35;
+  --wz-type-caption-letter-spacing: 0;
+  --wz-type-metric-value-size: 64px;
+  --wz-type-metric-value-weight: 800;
+  --wz-type-metric-value-line-height: 1.05;
+  --wz-type-metric-value-letter-spacing: -0.02em;
+  --wz-type-footer-size: 18px;
+  --wz-type-footer-weight: 500;
+  --wz-type-footer-line-height: 1.2;
+  --wz-type-footer-letter-spacing: 0.02em;
+  --wz-space-unit: 8px;
+  --wz-space-xs: 8px;
+  --wz-space-sm: 16px;
+  --wz-space-md: 24px;
+  --wz-space-lg: 40px;
+  --wz-space-xl: 64px;
+  --wz-space-xxl: 96px;
+  --wz-space-card-padding: 40px;
+  --wz-space-card-gap: 32px;
+  --wz-space-bullet-gap: 16px;
+  --wz-radius-card: 24px;
+  --wz-radius-chip: 999px;
+  --wz-radius-small: 12px;
+  --wz-border-card: 1.5px solid rgba(0, 212, 255, 0.28);
+  --wz-border-card-green: 1.5px solid rgba(33, 245, 155, 0.25);
+  --wz-border-faint: 1px solid rgba(159, 179, 200, 0.14);
+  --wz-slide-width: 1920px;
+  --wz-slide-height: 1080px;
+  --wz-slide-safe-margin: 96px;
+  --wz-slide-header-height: 140px;
+  --wz-slide-header-logo-height: 52px;
+  --wz-slide-header-logo-x: 96px;
+  --wz-slide-header-logo-y: 56px;
+  --wz-slide-footer-baseline-y: 1016px;
+  --wz-slide-page-number-right-x: 1824px;
+  --wz-slide-content-top-y: 200px;
+  --wz-grid-cell: 64px;
+  --wz-grid-color: rgba(0, 212, 255, 0.055);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; }
+body {
+  font-family: var(--wz-font-family);
+  color: var(--wz-color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.wz-slide {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  background: var(--wz-gradient-canvas);
+  overflow: hidden;
+}
+.wz-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, var(--wz-grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--wz-grid-color) 1px, transparent 1px);
+  background-size: var(--wz-grid-cell) var(--wz-grid-cell);
+  mask-image: radial-gradient(1400px 900px at 50% 40%, rgba(0,0,0,0.9), rgba(0,0,0,0.35));
+  -webkit-mask-image: radial-gradient(1400px 900px at 50% 40%, rgba(0,0,0,0.9), rgba(0,0,0,0.35));
+}
+.wz-header {
+  position: absolute;
+  left: var(--wz-slide-safe-margin);
+  right: var(--wz-slide-safe-margin);
+  top: 56px;
+  height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.wz-logo { height: 52px; display: flex; align-items: center; }
+.wz-logo svg { height: 52px; width: auto; display: block; }
+.wz-section-label {
+  font-size: var(--wz-type-section-label-size);
+  font-weight: var(--wz-type-section-label-weight);
+  letter-spacing: var(--wz-type-section-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--wz-color-text-secondary);
+}
+.wz-content {
+  position: absolute;
+  left: var(--wz-slide-safe-margin);
+  right: var(--wz-slide-safe-margin);
+  top: var(--wz-slide-content-top-y);
+  bottom: 88px;
+  display: flex; flex-direction: column;
+}
+.wz-footer {
+  position: absolute;
+  left: var(--wz-slide-safe-margin);
+  right: var(--wz-slide-safe-margin);
+  top: 1016px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: var(--wz-type-footer-size);
+  font-weight: var(--wz-type-footer-weight);
+  letter-spacing: var(--wz-type-footer-letter-spacing);
+  color: var(--wz-color-text-muted);
+}
+.wz-footer-rule {
+  position: absolute;
+  left: var(--wz-slide-safe-margin);
+  right: var(--wz-slide-safe-margin);
+  top: 996px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0,212,255,0.30), rgba(33,245,155,0.18), transparent 85%);
+}
+.wz-page-marker { color: var(--wz-color-text-secondary); font-variant-numeric: tabular-nums; }
+.wz-accent {
+  background: var(--wz-gradient-energy);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.wz-title {
+  font-size: var(--wz-type-h1-size);
+  font-weight: var(--wz-type-h1-weight);
+  line-height: var(--wz-type-h1-line-height);
+  letter-spacing: var(--wz-type-h1-letter-spacing);
+}
+.wz-subtitle {
+  margin-top: var(--wz-space-sm);
+  font-size: var(--wz-type-subtitle-size);
+  font-weight: var(--wz-type-subtitle-weight);
+  line-height: var(--wz-type-subtitle-line-height);
+  color: var(--wz-color-text-secondary);
+  max-width: 1400px;
+}
+.wz-intro {
+  margin-top: var(--wz-space-sm);
+  font-size: var(--wz-type-body-size);
+  line-height: var(--wz-type-body-line-height);
+  color: var(--wz-color-text-secondary);
+  max-width: 1500px;
+}
+.wz-body-zone { flex: 1; display: flex; margin-top: var(--wz-space-lg); min-height: 0; }
+.wz-card {
+  background: var(--wz-color-card-fill);
+  border: var(--wz-border-card);
+  border-radius: var(--wz-radius-card);
+  box-shadow: var(--wz-glow-card);
+  padding: var(--wz-space-card-padding);
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+}
+.wz-card-green { border: var(--wz-border-card-green); }
+.wz-card-heading {
+  font-size: var(--wz-type-card-heading-size);
+  font-weight: var(--wz-type-card-heading-weight);
+  line-height: var(--wz-type-card-heading-line-height);
+  letter-spacing: var(--wz-type-card-heading-letter-spacing);
+}
+.wz-card-head { display: flex; align-items: center; gap: 20px; margin-bottom: var(--wz-space-md); }
+.wz-icon { width: 44px; height: 44px; flex: 0 0 44px; display: inline-flex; }
+.wz-icon svg { width: 100%; height: 100%; }
+.wz-icon-cyan { color: var(--wz-color-cyan); filter: drop-shadow(0 0 8px rgba(0,212,255,0.45)); }
+.wz-icon-green { color: var(--wz-color-green); filter: drop-shadow(0 0 8px rgba(33,245,155,0.45)); }
+.wz-icon-gold { color: var(--wz-color-gold); filter: drop-shadow(0 0 8px rgba(255,200,87,0.45)); }
+.wz-bullets { list-style: none; display: flex; flex-direction: column; gap: var(--wz-space-bullet-gap); }
+.wz-bullets li {
+  position: relative;
+  padding-left: 34px;
+  font-size: var(--wz-type-body-size);
+  line-height: var(--wz-type-body-line-height);
+  color: var(--wz-color-text-primary);
+}
+.wz-bullets li::before {
+  content: "";
+  position: absolute; left: 0; top: 13px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--wz-gradient-energy);
+  box-shadow: var(--wz-glow-accent);
+}
+.wz-bullets li .wz-dim { color: var(--wz-color-text-secondary); }
+.wz-chip {
+  display: inline-flex; align-items: center; gap: 12px;
+  border-radius: var(--wz-radius-chip);
+  border: var(--wz-border-faint);
+  background: var(--wz-color-card-fill);
+  padding: 12px 28px;
+  font-size: var(--wz-type-caption-size);
+  font-weight: 600;
+  color: var(--wz-color-text-secondary);
+}
+.wz-chip .wz-dot { width: 10px; height: 10px; border-radius: 50%; }
+.wz-note {
+  margin-top: var(--wz-space-md);
+  font-size: var(--wz-type-caption-size);
+  line-height: var(--wz-type-caption-line-height);
+  color: var(--wz-color-text-muted);
+}
+</style>
+</head>
+<body>
+<div class="wz-slide" data-wz-canvas role="img" aria-label="The engagement path: share bills, run an EnergyScan, select a pilot opportunity, implement, measure, then expand the proven model.">
+  <div class="wz-grid"></div>
+  <header class="wz-header">
+    <div class="wz-logo" data-wz-logo="horizontalDark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 220" width="760" height="220">
+<defs>
+  <linearGradient id="e" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#00D4FF"/><stop offset="1" stop-color="#21F59B"/>
+  </linearGradient>
+  <linearGradient id="s" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#FFC857"/><stop offset="1" stop-color="#FFE29A"/>
+  </linearGradient>
+  <radialGradient id="halo" cx="0.5" cy="0.42" r="0.75">
+    <stop offset="0" stop-color="#00D4FF" stop-opacity="0.14"/>
+    <stop offset="1" stop-color="#00D4FF" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="g" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs><style>
+  
+  .wave { stroke-dasharray:194; stroke-dashoffset:194;
+          animation: draw 1.5s cubic-bezier(.65,0,.35,1) .15s forwards; }
+  .arc  { opacity:0; animation: rise .7s ease-out 1.05s forwards; }
+  .sun  { transform-box:fill-box; transform-origin:center; transform:scale(0);
+          animation: pop .55s cubic-bezier(.34,1.56,.64,1) 1.35s forwards; }
+  .t1   { opacity:0; animation: fade .4s ease-out .15s forwards; }
+  .t2   { opacity:0; animation: fade .4s ease-out 1.6s forwards; }
+  .watt { opacity:0; animation: up .6s cubic-bezier(.2,.7,.3,1) 1.7s forwards; }
+  .zap  { opacity:0; animation: up .6s cubic-bezier(.2,.7,.3,1) 1.95s forwards; }
+  .spark { stroke-dasharray:16 400; stroke-dashoffset:16; fill:none;
+           animation: flow 2.6s cubic-bezier(.45,.05,.55,.95) 2.2s infinite; }
+  .sunhalo { transform-box:fill-box; transform-origin:center; opacity:0;
+             animation: ping 3s ease-out 2.6s infinite; }
+  .sunbeat { transform-box:fill-box; transform-origin:center;
+             animation: beat 3s ease-in-out 2.6s infinite; }
+  @keyframes draw { to { stroke-dashoffset:0; } }
+  @keyframes rise { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes pop  { to { transform:scale(1); } }
+  @keyframes fade { to { opacity:1; } }
+  @keyframes up   { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes flow { from { stroke-dashoffset:16; opacity:1; } 90% { opacity:1; } to { stroke-dashoffset:-194; opacity:0; } }
+  @keyframes ping { 0% { transform:scale(1); opacity:.55; } 70% { transform:scale(2.1); opacity:0; } 100% { opacity:0; } }
+  @keyframes beat { 0%,100% { transform:scale(1); } 50% { transform:scale(1.12); } }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation:none !important; }
+    .wave { stroke-dashoffset:0; } .arc,.t1,.t2,.watt,.zap { opacity:1; }
+    .sun { transform:scale(1); } .spark { opacity:0; }
+  }
+</style>
+<rect width="760" height="220" rx="24" fill="#071A2D"/>
+<g transform="translate(89.57000000000005,35.0) scale(1.5)">
+  <path class="arc" d="M33 13 A23 23 0 0 1 67 13" fill="none" stroke="url(#s)" stroke-width="6" stroke-linecap="round"/>
+  <path class="wave" d="M16 56 H25 L36 82 L50 24 L64 82 L75 56 H84" pathLength="194" fill="none" stroke="url(#e)"
+        stroke-width="10" stroke-linecap="round" stroke-linejoin="round" filter="url(#g)"/>
+  <path class="spark" d="M16 56 H25 L36 82 L50 24 L64 82 L75 56 H84" pathLength="194" stroke="#FFFFFF"
+        stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
+  <circle class="sunhalo" cx="50" cy="24" r="7" fill="none" stroke="#FFC857" stroke-width="2.5"/>
+  <g class="sun"><circle class="sunbeat" cx="50" cy="24" r="7" fill="#FFC857"/></g>
+  <circle class="t1" cx="6.5" cy="56" r="4.5" fill="none" stroke="#00D4FF" stroke-width="3.4"/>
+  <circle class="t2" cx="93.5" cy="56" r="4.5" fill="none" stroke="#21F59B" stroke-width="3.4"/></g>
+<g class="watt"><path transform="translate(283.57,141.28) scale(0.092000,-0.092000)" d="M129.17449951171875 0 31.7498779296875 700H151.20068359375L226.900146484375 82.5506591796875H243.8502197265625L341.82452392578125 700H550.5758666992188L648.5501708984375 82.5506591796875H665.500244140625L741.19970703125 700H860.6505126953125L763.2258911132812 0H554.299560546875L454.67523193359375 628.99951171875H437.72515869140625L338.100830078125 0Z" fill="#FFFFFF"/><path transform="translate(366.09,141.28) scale(0.092000,-0.092000)" d="M226.27484130859375 -14Q173.62481689453125 -14 131.71231079101562 4.32501220703125Q89.7998046875 22.6500244140625 65.38729858398438 57.887542724609375Q40.97479248046875 93.12506103515625 40.97479248046875 143.60009765625Q40.97479248046875 194.2501220703125 65.38729858398438 228.31265258789062Q89.7998046875 262.37518310546875 132.86233520507812 279.6127014160156Q175.92486572265625 296.8502197265625 230.87493896484375 296.8502197265625H374.22442626953125V326.77508544921875Q374.22442626953125 365.97479248046875 350.12457275390625 390.3121643066406Q326.02471923828125 414.6495361328125 275.0499267578125 414.6495361328125Q225.07513427734375 414.6495361328125 199.53781127929688 391.399658203125Q174.00048828125 368.1497802734375 165.9505615234375 330.82501220703125L60.099853515625 365.97528076171875Q72.099853515625 404.8502197265625 98.51235961914062 436.87518310546875Q124.92486572265625 468.900146484375 169.16238403320312 488.57513427734375Q213.39990234375 508.2501220703125 276.699951171875 508.2501220703125Q373.6500244140625 508.2501220703125 429.5126037597656 459.42510986328125Q485.37518310546875 410.60009765625 485.37518310546875 318.82501220703125V124.900634765625Q485.37518310546875 94.900634765625 513.3751831054688 94.900634765625H554.60009765625V0H474.099853515625Q438.1497802734375 0 415.19970703125 18.087493896484375Q392.2496337890625 36.17498779296875 392.2496337890625 66.52496337890625V68.57489013671875H374.82452392578125Q369.2496337890625 54.82501220703125 354.1122131347656 35.062530517578125Q338.97479248046875 15.300048828125 308.4498291015625 0.6500244140625Q277.92486572265625 -14 226.27484130859375 -14ZM245.12506103515625 79.6005859375Q302.32476806640625 79.6005859375 338.27459716796875 112.07537841796875Q374.22442626953125 144.5501708984375 374.22442626953125 199.8497314453125V210.19970703125H238.47503662109375Q200.500244140625 210.19970703125 177.96292114257812 193.88729858398438Q155.42559814453125 177.57489013671875 155.42559814453125 147.07513427734375Q155.42559814453125 116.57537841796875 178.96292114257812 98.08798217773438Q202.500244140625 79.6005859375 245.12506103515625 79.6005859375Z" fill="#FFFFFF"/><path transform="translate(419.64,141.28) scale(0.092000,-0.092000)" d="M260.699951171875 0Q213.4498291015625 0 184.87469482421875 28.662628173828125Q156.299560546875 57.32525634765625 156.299560546875 105.700439453125V398.99951171875H26.699951171875V494.2501220703125H156.299560546875V653.1497802734375H270.7503662109375V494.2501220703125H412.699951171875V398.99951171875H270.7503662109375V125.2506103515625Q270.7503662109375 95.2506103515625 299.100341796875 95.2506103515625H398.2501220703125V0Z" fill="#FFFFFF"/><path transform="translate(462.14,141.28) scale(0.092000,-0.092000)" d="M260.699951171875 0Q213.4498291015625 0 184.87469482421875 28.662628173828125Q156.299560546875 57.32525634765625 156.299560546875 105.700439453125V398.99951171875H26.699951171875V494.2501220703125H156.299560546875V653.1497802734375H270.7503662109375V494.2501220703125H412.699951171875V398.99951171875H270.7503662109375V125.2506103515625Q270.7503662109375 95.2506103515625 299.100341796875 95.2506103515625H398.2501220703125V0Z" fill="#FFFFFF"/></g><g class="zap"><path transform="translate(504.65,141.28) scale(0.092000,-0.092000)" d="M47.0499267578125 0V154.0009765625L403.899169921875 577.5491943359375V592.499267578125H57.39990234375V700H528.2501220703125V545.9990234375L171.40087890625 122.4508056640625V107.500732421875H531.6500244140625V0Z" fill="url(#e)"/><path transform="translate(558.10,141.28) scale(0.092000,-0.092000)" d="M226.27484130859375 -14Q173.62481689453125 -14 131.71231079101562 4.32501220703125Q89.7998046875 22.6500244140625 65.38729858398438 57.887542724609375Q40.97479248046875 93.12506103515625 40.97479248046875 143.60009765625Q40.97479248046875 194.2501220703125 65.38729858398438 228.31265258789062Q89.7998046875 262.37518310546875 132.86233520507812 279.6127014160156Q175.92486572265625 296.8502197265625 230.87493896484375 296.8502197265625H374.22442626953125V326.77508544921875Q374.22442626953125 365.97479248046875 350.12457275390625 390.3121643066406Q326.02471923828125 414.6495361328125 275.0499267578125 414.6495361328125Q225.07513427734375 414.6495361328125 199.53781127929688 391.399658203125Q174.00048828125 368.1497802734375 165.9505615234375 330.82501220703125L60.099853515625 365.97528076171875Q72.099853515625 404.8502197265625 98.51235961914062 436.87518310546875Q124.92486572265625 468.900146484375 169.16238403320312 488.57513427734375Q213.39990234375 508.2501220703125 276.699951171875 508.2501220703125Q373.6500244140625 508.2501220703125 429.5126037597656 459.42510986328125Q485.37518310546875 410.60009765625 485.37518310546875 318.82501220703125V124.900634765625Q485.37518310546875 94.900634765625 513.3751831054688 94.900634765625H554.60009765625V0H474.099853515625Q438.1497802734375 0 415.19970703125 18.087493896484375Q392.2496337890625 36.17498779296875 392.2496337890625 66.52496337890625V68.57489013671875H374.82452392578125Q369.2496337890625 54.82501220703125 354.1122131347656 35.062530517578125Q338.97479248046875 15.300048828125 308.4498291015625 0.6500244140625Q277.92486572265625 -14 226.27484130859375 -14ZM245.12506103515625 79.6005859375Q302.32476806640625 79.6005859375 338.27459716796875 112.07537841796875Q374.22442626953125 144.5501708984375 374.22442626953125 199.8497314453125V210.19970703125H238.47503662109375Q200.500244140625 210.19970703125 177.96292114257812 193.88729858398438Q155.42559814453125 177.57489013671875 155.42559814453125 147.07513427734375Q155.42559814453125 116.57537841796875 178.96292114257812 98.08798217773438Q202.500244140625 79.6005859375 245.12506103515625 79.6005859375Z" fill="url(#e)"/><path transform="translate(611.64,141.28) scale(0.092000,-0.092000)" d="M73.1497802734375 -200V494.2501220703125H185.6005859375V429.17547607421875H202.5506591796875Q220.2506103515625 460.100341796875 257.7380065917969 484.17523193359375Q295.22540283203125 508.2501220703125 364.500244140625 508.2501220703125Q425.37518310546875 508.2501220703125 476.72515869140625 478.57513427734375Q528.0751342773438 448.900146484375 559.1626281738281 392.07513427734375Q590.2501220703125 335.2501220703125 590.2501220703125 254.77508544921875V239.47503662109375Q590.2501220703125 159.17498779296875 559.2501220703125 102.26248168945312Q528.2501220703125 45.3499755859375 476.900146484375 15.67498779296875Q425.5501708984375 -14 364.500244140625 -14Q318.100341796875 -14 286.37542724609375 -2.800048828125Q254.6505126953125 8.39990234375 235.27557373046875 26.037322998046875Q215.900634765625 43.67474365234375 204.5506591796875 61.899658203125H187.6005859375V-200ZM330.699951171875 86.20068359375Q393.899658203125 86.20068359375 434.67449951171875 126.41299438476562Q475.4493408203125 166.62530517578125 475.4493408203125 242.300048828125V251.9500732421875Q475.4493408203125 327.62481689453125 434.2619934082031 367.8371276855469Q393.07464599609375 408.0494384765625 330.699951171875 408.0494384765625Q268.500244140625 408.0494384765625 227.22540283203125 367.8371276855469Q185.9505615234375 327.62481689453125 185.9505615234375 251.9500732421875V242.300048828125Q185.9505615234375 166.62530517578125 227.22540283203125 126.41299438476562Q268.500244140625 86.20068359375 330.699951171875 86.20068359375Z" fill="url(#e)"/></g>
+</svg></div>
+    <div class="wz-section-label">Getting Started</div>
+  </header>
+  <main class="wz-content" data-overflow-guard data-wz-name="content">
+
+<div class="wz-title" data-wz-name="title">Start focused, <span class="wz-accent">prove value</span>, then scale</div>
+<div class="wz-subtitle">Beginning where savings are material, measurable and repeatable</div>
+
+<div class="wz-body-zone" style="align-items:stretch;">
+
+    <div style="flex:1; min-width:0; display:flex; align-items:stretch;">
+      <div class="wz-card " style="flex:1; padding:32px; text-align:center;" data-wz-name="step-1">
+        <div style="display:flex; justify-content:center; margin-bottom:20px;"><span class="wz-icon wz-icon-cyan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4h16l8 8v32H12z"/><path d="M28 4v8h8"/><path d="M18 24h12M18 32h12"/></svg>
+</span></div>
+        <div style="font-size:18px; font-weight:700; letter-spacing:0.14em; color:var(--wz-color-text-muted); margin-bottom:10px;">STEP 1</div>
+        <div class="wz-card-heading" style="font-size:26px; margin-bottom:12px;">Share bills</div>
+        <div style="font-size:20px; line-height:1.4; color:var(--wz-color-text-secondary);">Recent electricity bills start the analysis</div>
+      </div>
+      <div style="align-self:center; padding:0 10px; color:var(--wz-color-cyan); font-size:30px;">→</div>
+    </div>
+
+    <div style="flex:1; min-width:0; display:flex; align-items:stretch;">
+      <div class="wz-card wz-card-green" style="flex:1; padding:32px; text-align:center;" data-wz-name="step-2">
+        <div style="display:flex; justify-content:center; margin-bottom:20px;"><span class="wz-icon wz-icon-green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30a18 18 0 0 1 36 0"/><path d="M24 30 33 19"/><circle cx="24" cy="30" r="3"/><path d="M6 38h36"/></svg>
+</span></div>
+        <div style="font-size:18px; font-weight:700; letter-spacing:0.14em; color:var(--wz-color-text-muted); margin-bottom:10px;">STEP 2</div>
+        <div class="wz-card-heading" style="font-size:26px; margin-bottom:12px;">EnergyScan</div>
+        <div style="font-size:20px; line-height:1.4; color:var(--wz-color-text-secondary);">An initial diagnosis of the site</div>
+      </div>
+      <div style="align-self:center; padding:0 10px; color:var(--wz-color-cyan); font-size:30px;">→</div>
+    </div>
+
+    <div style="flex:1; min-width:0; display:flex; align-items:stretch;">
+      <div class="wz-card " style="flex:1; padding:32px; text-align:center;" data-wz-name="step-3">
+        <div style="display:flex; justify-content:center; margin-bottom:20px;"><span class="wz-icon wz-icon-cyan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6v36h36"/><path d="M14 32l8-9 6 5 12-14"/></svg>
+</span></div>
+        <div style="font-size:18px; font-weight:700; letter-spacing:0.14em; color:var(--wz-color-text-muted); margin-bottom:10px;">STEP 3</div>
+        <div class="wz-card-heading" style="font-size:26px; margin-bottom:12px;">Pilot</div>
+        <div style="font-size:20px; line-height:1.4; color:var(--wz-color-text-secondary);">Select one high-confidence opportunity</div>
+      </div>
+      <div style="align-self:center; padding:0 10px; color:var(--wz-color-cyan); font-size:30px;">→</div>
+    </div>
+
+    <div style="flex:1; min-width:0; display:flex; align-items:stretch;">
+      <div class="wz-card wz-card-green" style="flex:1; padding:32px; text-align:center;" data-wz-name="step-4">
+        <div style="display:flex; justify-content:center; margin-bottom:20px;"><span class="wz-icon wz-icon-green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="7"/><path d="M24 3v6M24 39v6M45 24h-6M9 24H3M39 9l-4.5 4.5M13.5 34.5 9 39M39 39l-4.5-4.5M13.5 13.5 9 9"/></svg>
+</span></div>
+        <div style="font-size:18px; font-weight:700; letter-spacing:0.14em; color:var(--wz-color-text-muted); margin-bottom:10px;">STEP 4</div>
+        <div class="wz-card-heading" style="font-size:26px; margin-bottom:12px;">Implement</div>
+        <div style="font-size:20px; line-height:1.4; color:var(--wz-color-text-secondary);">First actions, with WattZap support</div>
+      </div>
+      <div style="align-self:center; padding:0 10px; color:var(--wz-color-cyan); font-size:30px;">→</div>
+    </div>
+
+    <div style="flex:1; min-width:0; display:flex; align-items:stretch;">
+      <div class="wz-card " style="flex:1; padding:32px; text-align:center;" data-wz-name="step-5">
+        <div style="display:flex; justify-content:center; margin-bottom:20px;"><span class="wz-icon wz-icon-cyan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="19"/><path d="M24 12v12l8 6"/></svg>
+</span></div>
+        <div style="font-size:18px; font-weight:700; letter-spacing:0.14em; color:var(--wz-color-text-muted); margin-bottom:10px;">STEP 5</div>
+        <div class="wz-card-heading" style="font-size:26px; margin-bottom:12px;">Measure</div>
+        <div style="font-size:20px; line-height:1.4; color:var(--wz-color-text-secondary);">Results verified against the baseline</div>
+      </div>
+      <div style="align-self:center; padding:0 10px; color:var(--wz-color-cyan); font-size:30px;">→</div>
+    </div>
+
+    <div style="flex:1; min-width:0; display:flex; align-items:stretch;">
+      <div class="wz-card wz-card-green" style="flex:1; padding:32px; text-align:center;" data-wz-name="step-6">
+        <div style="display:flex; justify-content:center; margin-bottom:20px;"><span class="wz-icon wz-icon-green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M26 4 10 28h11l-3 16 16-24H23l3-16z"/></svg>
+</span></div>
+        <div style="font-size:18px; font-weight:700; letter-spacing:0.14em; color:var(--wz-color-text-muted); margin-bottom:10px;">STEP 6</div>
+        <div class="wz-card-heading" style="font-size:26px; margin-bottom:12px;">Expand</div>
+        <div style="font-size:20px; line-height:1.4; color:var(--wz-color-text-secondary);">Scale the proven model</div>
+      </div>
+      
+    </div>
+</div>
+<div style="display:flex; gap:24px; margin-top:var(--wz-space-md);"><div class="wz-chip"><span class="wz-dot" style="background:var(--wz-color-green)"></span>Focus now: rice mills and energy-intensive SMEs</div>
+<div class="wz-chip"><span class="wz-dot" style="background:var(--wz-color-green)"></span>Next: cold storage, poultry, food processing, EV charging</div>
+<div class="wz-chip"><span class="wz-dot" style="background:var(--wz-color-green)"></span>Sector playbooks over serving every market at once</div></div>
+  </main>
+  <div class="wz-footer-rule"></div>
+  <footer class="wz-footer">
+    <div class="wz-footer-note">WattZap Energy Solutions — Confidential</div>
+    <div class="wz-page-marker">13 / 14</div>
+  </footer>
+</div>
+<script>
+function wzMeasure(final) {
+  const problems = [];
+  const guard = 1;
+  document.querySelectorAll(".wz-card, [data-overflow-guard]").forEach((el, i) => {
+    if (el.scrollHeight > el.clientHeight + guard || el.scrollWidth > el.clientWidth + guard) {
+      problems.push({
+        element: el.getAttribute("data-wz-name") || el.className.split(" ")[0] + "#" + i,
+        scrollHeight: el.scrollHeight, clientHeight: el.clientHeight,
+        scrollWidth: el.scrollWidth, clientWidth: el.clientWidth
+      });
+    }
+  });
+  const content = document.querySelector(".wz-content");
+  const footerRule = document.querySelector(".wz-footer-rule");
+  if (content && footerRule) {
+    const fb = footerRule.getBoundingClientRect();
+    for (const child of content.querySelectorAll("*")) {
+      const r = child.getBoundingClientRect();
+      if (r.height > 0 && r.bottom > fb.top - 4) {
+        problems.push({ element: "content-intrudes-footer", detail: child.className || child.tagName });
+        break;
+      }
+    }
+  }
+  const report = { ok: problems.length === 0, final, problems };
+  let s = document.getElementById("wz-overflow-report");
+  if (!s) {
+    s = document.createElement("script");
+    s.type = "application/json";
+    s.id = "wz-overflow-report";
+    document.body.appendChild(s);
+  }
+  s.textContent = JSON.stringify(report);
+}
+// Provisional measurement immediately (layout is complete at end-of-body), then a
+// definitive one once the bundled font has settled — so a report always exists
+// even if DOM serialisation wins the race against font loading.
+wzMeasure(false);
+// setTimeout, not requestAnimationFrame: headless DOM dumps produce no
+// compositor frames, so rAF callbacks may never fire there. Layout metrics are
+// current after a task-queue turn.
+Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 4000))])
+  .then(() => setTimeout(() => wzMeasure(true), 50));
+</script>
+</body>
+</html>

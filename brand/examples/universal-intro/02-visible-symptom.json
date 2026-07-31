@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "three-column-overview",
+  "deck": "WattZap — Universal Company Introduction",
+  "slideNumber": 2,
+  "totalSlides": 14,
+  "sectionLabel": "The Problem",
+  "title": "The bill shows the cost — not what causes it",
+  "titleAccent": "not what causes it",
+  "subtitle": "One visible number, shaped by many hidden factors",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "The electricity bill is only the visible symptom: what the bill shows, the hidden factors behind it, and what owners cannot see.",
+  "content": {
+    "columns": [
+      {
+        "icon": "document",
+        "heading": "What the bill shows",
+        "bullets": [
+          "The final amount, units consumed and the due date",
+          "Penalties and charges, buried in line items",
+          "A number that arrives after the money is spent"
+        ]
+      },
+      {
+        "icon": "bolt",
+        "heading": "What stays hidden",
+        "bullets": [
+          "Demand, power factor and time-of-use behaviour",
+          "Tariff category, contract demand and billing accuracy",
+          "Machine loading, schedules and solar performance"
+        ]
+      },
+      {
+        "icon": "meter",
+        "heading": "What owners cannot see",
+        "bullets": [
+          "Which part of the bill was avoidable",
+          "Whether the cause is operational, technical or contractual",
+          "Whether promised savings actually materialised"
+        ]
+      }
+    ],
+    "outcomes": [
+      "Customers know what they paid — not what they could have prevented"
+    ]
+  }
+}

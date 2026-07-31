@@ -1,0 +1,23 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "title-slide",
+  "deck": "WattZap — Universal Company Introduction",
+  "slideNumber": 14,
+  "totalSlides": 14,
+  "sectionLabel": "Getting Started",
+  "title": "Start with one site and one EnergyScan",
+  "titleAccent": "EnergyScan",
+  "subtitle": "Measured savings, not equipment sales",
+  "supporting": "WattZap gives industrial customers a structured, accountable way to understand electricity costs, stop avoidable losses, improve operations, invest intelligently and verify the savings achieved.",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Closing slide: start with one site and one EnergyScan — identify one high-confidence opportunity, prove the savings, scale what works.",
+  "content": {
+    "kicker": "WattZap Energy Solutions",
+    "highlights": [
+      "Share recent electricity bills to begin",
+      "Pilot one high-confidence opportunity",
+      "Expand only after value is proved"
+    ],
+    "dateLine": "[Website] · [Email] · [Phone] · [Contact person] · [Location]"
+  }
+}

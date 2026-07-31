@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/universal-intro/05-the-journey.json",
+  "template": "process-flow",
+  "title": "One journey from diagnosis to proven savings",
+  "pageMarker": "5/14",
+  "outputs": {
+    "html": "brand/generated/universal-intro/05-the-journey.html",
+    "png": "brand/generated/universal-intro/05-the-journey.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

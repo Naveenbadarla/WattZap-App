@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "process-flow",
+  "deck": "WattZap — Universal Company Introduction",
+  "slideNumber": 13,
+  "totalSlides": 14,
+  "sectionLabel": "Getting Started",
+  "title": "Start focused, prove value, then scale",
+  "titleAccent": "prove value",
+  "subtitle": "Beginning where savings are material, measurable and repeatable",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "The engagement path: share bills, run an EnergyScan, select a pilot opportunity, implement, measure, then expand the proven model.",
+  "content": {
+    "steps": [
+      {
+        "icon": "document",
+        "heading": "Share bills",
+        "caption": "Recent electricity bills start the analysis"
+      },
+      {
+        "icon": "meter",
+        "heading": "EnergyScan",
+        "caption": "An initial diagnosis of the site"
+      },
+      {
+        "icon": "chart",
+        "heading": "Pilot",
+        "caption": "Select one high-confidence opportunity"
+      },
+      {
+        "icon": "gear",
+        "heading": "Implement",
+        "caption": "First actions, with WattZap support"
+      },
+      {
+        "icon": "clock",
+        "heading": "Measure",
+        "caption": "Results verified against the baseline"
+      },
+      {
+        "icon": "bolt",
+        "heading": "Expand",
+        "caption": "Scale the proven model"
+      }
+    ],
+    "outcomes": [
+      "Focus now: rice mills and energy-intensive SMEs",
+      "Next: cold storage, poultry, food processing, EV charging",
+      "Sector playbooks over serving every market at once"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/universal-intro/01-opening.json",
+  "template": "title-slide",
+  "title": "Industrial electricity costs, turned into measured savings",
+  "pageMarker": "1/14",
+  "outputs": {
+    "html": "brand/generated/universal-intro/01-opening.html",
+    "png": "brand/generated/universal-intro/01-opening.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

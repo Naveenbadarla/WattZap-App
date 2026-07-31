@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "four-card-requirements",
+  "deck": "WattZap — Universal Company Introduction",
+  "slideNumber": 3,
+  "totalSlides": 14,
+  "sectionLabel": "The Problem",
+  "title": "Many vendors — no owner of the savings outcome",
+  "titleAccent": "savings outcome",
+  "subtitle": "Each provider solves a part; the customer must connect the pieces",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "The fragmented market: equipment vendors, software and data providers, auditors and advisors, and financiers — none owning the complete savings outcome.",
+  "content": {
+    "cards": [
+      {
+        "icon": "gear",
+        "heading": "Equipment vendors",
+        "bullets": [
+          "Solar EPCs sized to the roof, not the load",
+          "Electrical contractors and APFC suppliers",
+          "Meter vendors selling hardware, not answers"
+        ]
+      },
+      {
+        "icon": "signal",
+        "heading": "Software & data",
+        "bullets": [
+          "Dashboards that show data, not decisions",
+          "Monitoring tools disconnected from the bill",
+          "Reports that end where implementation begins"
+        ]
+      },
+      {
+        "icon": "document",
+        "heading": "Auditors & advisors",
+        "bullets": [
+          "Audit reports without an owner for follow-through",
+          "Maintenance providers fixing symptoms",
+          "Recommendations that stop at the report"
+        ]
+      },
+      {
+        "icon": "rupee",
+        "heading": "Financiers",
+        "bullets": [
+          "Capital offered without savings evidence",
+          "Projects appraised without measured baselines",
+          "No one accountable for the final outcome"
+        ]
+      }
+    ],
+    "note": "The customer's unanswered question: what actually reduced my bill — and by how much?"
+  }
+}

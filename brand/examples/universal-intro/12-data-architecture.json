@@ -1,0 +1,38 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "architecture",
+  "deck": "WattZap — Universal Company Introduction",
+  "slideNumber": 12,
+  "totalSlides": 14,
+  "sectionLabel": "The Platform",
+  "title": "From site data to financial decisions",
+  "titleAccent": "financial decisions",
+  "subtitle": "A modular architecture — start with today's data, expand where value appears",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Modular platform architecture: site data, connectivity through WattZap Edge, analytics and decision logic, and customer-facing outcomes.",
+  "content": {
+    "layers": [
+      {
+        "icon": "plug",
+        "heading": "Site data",
+        "items": ["Bills & existing site data", "Existing meters & equipment", "Sub-metering where needed"]
+      },
+      {
+        "icon": "signal",
+        "heading": "Connectivity",
+        "items": ["WattZap Edge site gateway", "Secure data collection"]
+      },
+      {
+        "icon": "gear",
+        "heading": "Intelligence",
+        "items": ["Analytics & decision logic", "Alerts & recommendations", "Control where enabled"]
+      },
+      {
+        "icon": "chart",
+        "heading": "Outcomes",
+        "items": ["Customer dashboard", "Savings-verification reports"]
+      }
+    ],
+    "note": "Not every customer needs the full architecture on day one — visibility expands only where it creates value."
+  }
+}

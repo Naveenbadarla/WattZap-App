@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "four-card-requirements",
+  "deck": "WattZap — Universal Company Introduction",
+  "slideNumber": 7,
+  "totalSlides": 14,
+  "sectionLabel": "Protect",
+  "title": "The fastest savings stop losses already occurring",
+  "titleAccent": "stop losses",
+  "subtitle": "WattZap Guard — one protection layer around the electricity bill",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "The WattZap Guard protection layer: PF Guard, Demand Guard, Bill Guard and Solar Guard working as one system around the bill.",
+  "content": {
+    "cards": [
+      {
+        "icon": "shield",
+        "heading": "PF Guard",
+        "bullets": [
+          "Identifies power-factor penalties and their causes",
+          "Reduces reactive-power exposure",
+          "Verifies that penalties actually fall"
+        ]
+      },
+      {
+        "icon": "bolt",
+        "heading": "Demand Guard",
+        "bullets": [
+          "Tracks demand against sanctioned limits",
+          "Flags spike patterns and what they cost",
+          "Controls demand charges before they recur"
+        ]
+      },
+      {
+        "icon": "document",
+        "heading": "Bill Guard",
+        "bullets": [
+          "Checks every bill for anomalies and errors",
+          "Flags tariff issues and inconsistencies",
+          "Supports recovery where money is owed"
+        ]
+      },
+      {
+        "icon": "sun",
+        "heading": "Solar Guard",
+        "bullets": [
+          "Verifies solar delivers what was promised",
+          "Flags underperformance and downtime",
+          "Values lost generation in rupees"
+        ]
+      }
+    ],
+    "note": "Protection comes before expansion — the four Guards work as one layer, not separate products."
+  }
+}

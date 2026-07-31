@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "comparison",
+  "deck": "WattZap — Universal Company Introduction",
+  "slideNumber": 10,
+  "totalSlides": 14,
+  "sectionLabel": "Finance",
+  "title": "Commercial structures matched to the opportunity",
+  "titleAccent": "matched",
+  "subtitle": "A valuable project should not fail only because of upfront capital",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Commercial structures matched to the opportunity: customer-funded, lease and PPA, and savings-linked models — with the right structure depending on the case.",
+  "content": {
+    "options": [
+      {
+        "icon": "rupee",
+        "heading": "Customer-funded",
+        "tagline": "Full ownership where capital is available",
+        "bullets": [
+          "Customer owns the asset and the savings",
+          "Fastest route where capital is available",
+          "WattZap implements and verifies"
+        ]
+      },
+      {
+        "icon": "document",
+        "heading": "Lease & PPA",
+        "tagline": "Structured access without heavy capex",
+        "bullets": [
+          "Lease, hybrid lease or solar PPA",
+          "Little or no upfront investment",
+          "Payments structured below expected savings"
+        ]
+      },
+      {
+        "icon": "chart",
+        "heading": "Savings-linked",
+        "tagline": "Fees that follow verified results",
+        "bullets": [
+          "Shared-savings and performance-linked fees",
+          "Revenue-share and selective asset financing",
+          "Measurement capability is the precondition"
+        ]
+      }
+    ],
+    "note": "The structure depends on savings confidence, creditworthiness, asset ownership, risk and duration — no model is promised universally."
+  }
+}

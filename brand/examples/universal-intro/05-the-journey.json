@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "process-flow",
+  "deck": "WattZap — Universal Company Introduction",
+  "slideNumber": 5,
+  "totalSlides": 14,
+  "sectionLabel": "The Journey",
+  "title": "One journey from diagnosis to proven savings",
+  "titleAccent": "proven savings",
+  "subtitle": "Modular by design — start small, unlock stages as value is established",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "The complete WattZap journey: Diagnose, Protect, Optimise, Generate, Finance, Prove — each stage with its customer outcome.",
+  "content": {
+    "steps": [
+      {
+        "icon": "meter",
+        "heading": "Diagnose",
+        "caption": "Understand the opportunity"
+      },
+      {
+        "icon": "shield",
+        "heading": "Protect",
+        "caption": "Stop avoidable leakage"
+      },
+      {
+        "icon": "gear",
+        "heading": "Optimise",
+        "caption": "Improve existing operations"
+      },
+      {
+        "icon": "sun",
+        "heading": "Generate",
+        "caption": "Add correctly sized assets"
+      },
+      {
+        "icon": "rupee",
+        "heading": "Finance",
+        "caption": "Remove implementation barriers"
+      },
+      {
+        "icon": "chart",
+        "heading": "Prove",
+        "caption": "Verify and sustain the savings"
+      }
+    ],
+    "outcomes": [
+      "Begin with an EnergyScan on existing bills and data",
+      "No customer needs to purchase everything upfront",
+      "Each stage unlocks as evidence accumulates"
+    ]
+  }
+}

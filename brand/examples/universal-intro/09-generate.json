@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "three-column-overview",
+  "deck": "WattZap — Universal Company Introduction",
+  "slideNumber": 9,
+  "totalSlides": 14,
+  "sectionLabel": "Generate",
+  "title": "Solar sized to your energy reality, not your roof",
+  "titleAccent": "energy reality",
+  "subtitle": "Generation and storage follow the load — never the other way round",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Generate the right way: solar and storage sized to the site's real load, offered through the right structures, and monitored for performance.",
+  "content": {
+    "columns": [
+      {
+        "icon": "sun",
+        "heading": "Sized to the site",
+        "bullets": [
+          "Daytime load, operating hours and seasonality",
+          "Export limits, tariffs and demand profile",
+          "Capital availability, payback and risk"
+        ]
+      },
+      {
+        "icon": "battery",
+        "heading": "The right assets",
+        "bullets": [
+          "SolarFit: right-sized, evidence-based design",
+          "Owned, leased or PPA-structured solar",
+          "Solar-plus-storage and battery optimisation"
+        ]
+      },
+      {
+        "icon": "chart",
+        "heading": "Performing for years",
+        "bullets": [
+          "Solar performance monitored continuously",
+          "Underperformance valued and corrected",
+          "Future-ready for EV-charging optimisation"
+        ]
+      }
+    ],
+    "outcomes": [
+      "The goal is customer value, not installed capacity"
+    ]
+  }
+}

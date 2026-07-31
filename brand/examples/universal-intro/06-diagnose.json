@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "comparison",
+  "deck": "WattZap — Universal Company Introduction",
+  "slideNumber": 6,
+  "totalSlides": 14,
+  "sectionLabel": "Diagnose",
+  "title": "Every engagement begins with evidence",
+  "titleAccent": "evidence",
+  "subtitle": "EnergyScan separates assumptions from measurable opportunities",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Diagnose before investing: EnergyScan Lite as a first screening and EnergyScan Pro as a detailed whole-site diagnosis.",
+  "content": {
+    "options": [
+      {
+        "icon": "meter",
+        "heading": "EnergyScan Lite",
+        "tagline": "A first screening from existing bills",
+        "bullets": [
+          "Initial bill screening and qualification",
+          "High-level identification of opportunity areas",
+          "Preliminary savings areas, at no obligation"
+        ]
+      },
+      {
+        "icon": "chart",
+        "heading": "EnergyScan Pro",
+        "tagline": "A detailed diagnosis of the whole site",
+        "featured": true,
+        "badge": "The foundation",
+        "bullets": [
+          "Detailed bill, tariff and interval-data analysis",
+          "Site, equipment and load-profile assessment",
+          "An agreed baseline for future verification",
+          "A prioritised implementation roadmap"
+        ]
+      }
+    ],
+    "note": "The output is a prioritised action plan — not an audit report that sits on a shelf."
+  }
+}

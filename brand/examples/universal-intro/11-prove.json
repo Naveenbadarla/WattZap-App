@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "three-column-overview",
+  "deck": "WattZap — Universal Company Introduction",
+  "slideNumber": 11,
+  "totalSlides": 14,
+  "sectionLabel": "Prove",
+  "title": "Savings are credible when the maths is visible",
+  "titleAccent": "credible",
+  "subtitle": "Agreed baseline − adjusted actual cost = verified savings",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "How savings are proved: an agreed baseline, minus the adjusted actual cost, equals verified savings — attributed by source and reported monthly.",
+  "content": {
+    "columns": [
+      {
+        "icon": "document",
+        "heading": "Agreed baseline",
+        "bullets": [
+          "The 'before' cost, agreed before changes",
+          "Built from bills and measured site data",
+          "The reference every result is checked against"
+        ]
+      },
+      {
+        "icon": "meter",
+        "heading": "Adjusted actual",
+        "bullets": [
+          "Measured cost after implementation",
+          "Agreed adjustments: production, hours, tariffs",
+          "Seasonality and extraordinary events included"
+        ]
+      },
+      {
+        "icon": "chart",
+        "heading": "Verified savings",
+        "bullets": [
+          "Attributed by source: penalties, billing, operations, solar",
+          "Monthly reports for customers and financiers",
+          "Tracked continuously, not claimed once"
+        ]
+      }
+    ],
+    "outcomes": [
+      "WattZap's role continues after implementation",
+      "[Insert verified pilot result when available]"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/universal-intro/11-prove.json",
+  "template": "three-column-overview",
+  "title": "Savings are credible when the maths is visible",
+  "pageMarker": "11/14",
+  "outputs": {
+    "html": "brand/generated/universal-intro/11-prove.html",
+    "png": "brand/generated/universal-intro/11-prove.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

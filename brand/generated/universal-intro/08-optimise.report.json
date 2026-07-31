@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/universal-intro/08-optimise.json",
+  "template": "process-flow",
+  "title": "Use the existing site more intelligently first",
+  "pageMarker": "8/14",
+  "outputs": {
+    "html": "brand/generated/universal-intro/08-optimise.html",
+    "png": "brand/generated/universal-intro/08-optimise.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}
