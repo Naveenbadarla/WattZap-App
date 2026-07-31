@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/vvdn-pilot/01-title-brief.json",
+  "template": "title-slide",
+  "title": "WattZap × VVDN",
+  "pageMarker": "1/3",
+  "outputs": {
+    "html": "brand/generated/vvdn-pilot/01-title-brief.html",
+    "png": "brand/generated/vvdn-pilot/01-title-brief.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

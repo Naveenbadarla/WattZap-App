@@ -1,0 +1,21 @@
+{
+  "source": "brand/examples/vvdn-pilot/03-ev-charging-pilot.json",
+  "template": "four-card-requirements",
+  "title": "EV Charging Station Pilot",
+  "pageMarker": "3/3",
+  "outputs": {
+    "html": "brand/generated/vvdn-pilot/03-ev-charging-pilot.html",
+    "png": "brand/generated/vvdn-pilot/03-ev-charging-pilot.png"
+  },
+  "dimensions": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logo": "brand/assets/logos/wattzap-animated-horizontal-dark.svg (exact bytes, inlined)",
+  "overflow": {
+    "ok": true,
+    "final": true,
+    "problems": []
+  },
+  "ok": true
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "four-card-requirements",
+  "deck": "WattZap × VVDN — Initial Pilot Requirement Brief",
+  "slideNumber": 2,
+  "totalSlides": 3,
+  "sectionLabel": "Rice Mill Pilot",
+  "title": "Rice Mill Pilot",
+  "titleAccent": "Rice Mill",
+  "subtitle": "Initial requirement for MVP deployment",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "Rice mill pilot: four requirement areas — metering and sensing, connectivity, power environment, and pilot success criteria.",
+  "content": {
+    "cards": [
+      {
+        "icon": "meter",
+        "heading": "Metering & Sensing",
+        "bullets": [
+          "Three-phase CT metering on mains plus two major motor loads",
+          "Power factor and harmonics captured at one-minute intervals",
+          "Non-invasive installation during a planned mill halt"
+        ]
+      },
+      {
+        "icon": "signal",
+        "heading": "Connectivity",
+        "bullets": [
+          "4G LTE primary link with local buffering through outages",
+          "MQTT over TLS into the WattZap data platform",
+          "Remote OTA firmware and configuration updates"
+        ]
+      },
+      {
+        "icon": "bolt",
+        "heading": "Power Environment",
+        "bullets": [
+          "440 V three-phase supply, 75–150 kW connected load",
+          "Wide voltage swings and DISCOM outages expected",
+          "Surge and dust protection to IP54 or better"
+        ]
+      },
+      {
+        "icon": "chart",
+        "heading": "Pilot Success Criteria",
+        "bullets": [
+          "Baseline load profile within two weeks of installation",
+          "Per-unit savings validated against the DISCOM bill",
+          "Device uptime of 99% or higher across the 90-day pilot"
+        ]
+      }
+    ],
+    "note": "Pilot site: rice mill, Telangana. Working draft — quantities and specs to be confirmed with VVDN."
+  }
+}

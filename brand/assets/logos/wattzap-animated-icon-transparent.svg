@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="220" height="220">
+<defs>
+  <linearGradient id="e" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#00D4FF"/><stop offset="1" stop-color="#21F59B"/>
+  </linearGradient>
+  <linearGradient id="s" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#FFC857"/><stop offset="1" stop-color="#FFE29A"/>
+  </linearGradient>
+  <radialGradient id="halo" cx="0.5" cy="0.42" r="0.75">
+    <stop offset="0" stop-color="#00D4FF" stop-opacity="0.14"/>
+    <stop offset="1" stop-color="#00D4FF" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="g" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs><style>
+  
+  .wave { stroke-dasharray:194; stroke-dashoffset:194;
+          animation: draw 1.5s cubic-bezier(.65,0,.35,1) .15s forwards; }
+  .arc  { opacity:0; animation: rise .7s ease-out 1.05s forwards; }
+  .sun  { transform-box:fill-box; transform-origin:center; transform:scale(0);
+          animation: pop .55s cubic-bezier(.34,1.56,.64,1) 1.35s forwards; }
+  .t1   { opacity:0; animation: fade .4s ease-out .15s forwards; }
+  .t2   { opacity:0; animation: fade .4s ease-out 1.6s forwards; }
+  .watt { opacity:0; animation: up .6s cubic-bezier(.2,.7,.3,1) 1.7s forwards; }
+  .zap  { opacity:0; animation: up .6s cubic-bezier(.2,.7,.3,1) 1.95s forwards; }
+  .spark { stroke-dasharray:16 400; stroke-dashoffset:16; fill:none;
+           animation: flow 2.6s cubic-bezier(.45,.05,.55,.95) 2.2s infinite; }
+  .sunhalo { transform-box:fill-box; transform-origin:center; opacity:0;
+             animation: ping 3s ease-out 2.6s infinite; }
+  .sunbeat { transform-box:fill-box; transform-origin:center;
+             animation: beat 3s ease-in-out 2.6s infinite; }
+  @keyframes draw { to { stroke-dashoffset:0; } }
+  @keyframes rise { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes pop  { to { transform:scale(1); } }
+  @keyframes fade { to { opacity:1; } }
+  @keyframes up   { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes flow { from { stroke-dashoffset:16; opacity:1; } 90% { opacity:1; } to { stroke-dashoffset:-194; opacity:0; } }
+  @keyframes ping { 0% { transform:scale(1); opacity:.55; } 70% { transform:scale(2.1); opacity:0; } 100% { opacity:0; } }
+  @keyframes beat { 0%,100% { transform:scale(1); } 50% { transform:scale(1.12); } }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation:none !important; }
+    .wave { stroke-dashoffset:0; } .arc,.t1,.t2,.watt,.zap { opacity:1; }
+    .sun { transform:scale(1); } .spark { opacity:0; }
+  }
+</style>
+<g transform="translate(10,10) scale(2)">
+  <path class="arc" d="M33 13 A23 23 0 0 1 67 13" fill="none" stroke="url(#s)" stroke-width="6" stroke-linecap="round"/>
+  <path class="wave" d="M16 56 H25 L36 82 L50 24 L64 82 L75 56 H84" pathLength="194" fill="none" stroke="url(#e)"
+        stroke-width="10" stroke-linecap="round" stroke-linejoin="round" filter="url(#g)"/>
+  <path class="spark" d="M16 56 H25 L36 82 L50 24 L64 82 L75 56 H84" pathLength="194" stroke="#FFFFFF"
+        stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
+  <circle class="sunhalo" cx="50" cy="24" r="7" fill="none" stroke="#FFC857" stroke-width="2.5"/>
+  <g class="sun"><circle class="sunbeat" cx="50" cy="24" r="7" fill="#FFC857"/></g>
+  <circle class="t1" cx="6.5" cy="56" r="4.5" fill="none" stroke="#00D4FF" stroke-width="3.4"/>
+  <circle class="t2" cx="93.5" cy="56" r="4.5" fill="none" stroke="#21F59B" stroke-width="3.4"/></g>
+</svg>

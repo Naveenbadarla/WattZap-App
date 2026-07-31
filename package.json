@@ -8,7 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "seed:supabase": "node scripts/seed-supabase.mjs"
+    "seed:supabase": "node scripts/seed-supabase.mjs",
+    "brand:tokens": "node tools/wattzap-brand-studio/scripts/tokens-to-css.mjs",
+    "brand:render": "node tools/wattzap-brand-studio/scripts/render.mjs",
+    "brand:render:vvdn": "node tools/wattzap-brand-studio/scripts/render.mjs brand/examples/vvdn-pilot --out brand/generated/vvdn-pilot",
+    "brand:validate": "node tools/wattzap-brand-studio/scripts/validate.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",

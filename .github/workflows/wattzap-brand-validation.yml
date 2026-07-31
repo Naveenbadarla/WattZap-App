@@ -1,0 +1,35 @@
+# WattZap Brand Studio validation.
+# Narrowly scoped: runs ONLY when brand-studio files change.
+# It never builds or deploys the application and must not gate unrelated work.
+name: WattZap Brand Validation
+
+on:
+  push:
+    paths:
+      - "brand/**"
+      - "tools/wattzap-brand-studio/**"
+      - ".claude/rules/wattzap-brand.md"
+      - ".claude/skills/wattzap-slide-studio/**"
+      - ".github/workflows/wattzap-brand-validation.yml"
+  pull_request:
+    paths:
+      - "brand/**"
+      - "tools/wattzap-brand-studio/**"
+      - ".claude/rules/wattzap-brand.md"
+      - ".claude/skills/wattzap-slide-studio/**"
+      - ".github/workflows/wattzap-brand-validation.yml"
+
+jobs:
+  brand-validate:
+    name: Validate brand system
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate brand tokens, schema, assets, content and outputs
+        run: npm run brand:validate

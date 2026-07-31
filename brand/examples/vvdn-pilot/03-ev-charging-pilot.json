@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schemas/slide-content.schema.json",
+  "template": "four-card-requirements",
+  "deck": "WattZap × VVDN — Initial Pilot Requirement Brief",
+  "slideNumber": 3,
+  "totalSlides": 3,
+  "sectionLabel": "EV Charging Pilot",
+  "title": "EV Charging Station Pilot",
+  "titleAccent": "EV Charging",
+  "subtitle": "Initial requirement for MVP deployment",
+  "footerNote": "WattZap Energy Solutions — Confidential",
+  "a11yLabel": "EV charging station pilot: four requirement areas — charger integration, metering and power quality, connectivity and control, and pilot success criteria.",
+  "content": {
+    "cards": [
+      {
+        "icon": "ev-charger",
+        "heading": "Charger Integration",
+        "bullets": [
+          "OCPP 1.6-J interface to the site's DC fast chargers",
+          "Per-gun energy and charging-session metering",
+          "Zero interruption to commercial charging operations"
+        ]
+      },
+      {
+        "icon": "meter",
+        "heading": "Metering & Power Quality",
+        "bullets": [
+          "Grid-side three-phase metering with PQ capture",
+          "Rooftop solar generation metered separately",
+          "Demand and time-of-day tariff tracking"
+        ]
+      },
+      {
+        "icon": "signal",
+        "heading": "Connectivity & Control",
+        "bullets": [
+          "4G LTE with fail-safe local operation",
+          "Secure MQTT and HTTPS into the WattZap platform",
+          "Future-ready load-management control interface"
+        ]
+      },
+      {
+        "icon": "chart",
+        "heading": "Pilot Success Criteria",
+        "bullets": [
+          "Session-level cost and margin analytics delivered",
+          "Solar self-consumption uplift measured and reported",
+          "Demand-charge reduction quantified over 90 days"
+        ]
+      }
+    ],
+    "note": "Pilot site: EV charging station, Hyderabad. Working draft — charger models and counts to be confirmed."
+  }
+}
